@@ -1,2 +1,2 @@
 # Bug-Crushers
-A Step Challenge Application
+A Step Challenge Application for users 
