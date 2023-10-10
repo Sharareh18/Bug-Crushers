@@ -1,30 +1,37 @@
 const { User } = require("../models");
+//require the index file, it has the created relationship between the two tables
 
-const userData = [
+const userdata = [
     {
-        full_name: "Josh Jacobs",
-        user_name: "J_Jacobs",
+        first_name: "Josh",
+        last_name: "Jacobs",
+        user_name: "JJacobs",
         email: "j_jacobs@gmail.com",
-        password: "myAwesomePassword"
+        password: "myAwesomePassword",
     }, 
     {
-        full_name: "Samantha Lee",
+        first_name: "Samantha",
+        last_name: "Lee",
         user_name: "samlee",
         email: "samantha.lee@hotmail.com",
-        password: "mysecretpassword123"
+        password: "mysecretpassword123",
     },
     {
-        full_name: "Michael Chen",
+        first_name: "Michael",
+        last_name: "Chen",
         user_name: "mchen",
         email: "michael.chen@email.com",
-        password: "1qaz2wsx3edc4rfv"
+        password: "1qaz2wsx3edc4rfv",
     },
     {
-        full_name: "Emily Rodriguez",
+        first_name: "Emily",
+        last_name: "Rodriguez",
         user_name: "emrodriguez",
         email: "emily.rodriguez@email.com",
-        password: "P@ssw0rd!"
+        password: "P@ssw0rd!",
     }
 ]
 
-const seedUsers = () => User.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userdata);
+
+module.exports = seedUsers;

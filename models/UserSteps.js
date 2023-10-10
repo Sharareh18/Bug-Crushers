@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class UserSteps extends Model {}
@@ -7,22 +6,25 @@ class UserSteps extends Model {}
 UserSteps.init (
     {
         id: {
-            primaryKey: true,
             type: DataTypes.INTEGER,
-            autoIncrement: true
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
         },
         step_count: {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
-        //date_created: ... will have this property because timestamps is set to true
+        //date_created included with timestamps
         user_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: "user",
-                key: "id"
+                key: "id",
             },
             onDelete: "CASCADE",
+            //put the foreign key as cascade, so that the entire entry is deleted when the parent table entry is deleted
+            //this allows for the cascade deletion
         }
     },
     {
@@ -34,12 +36,4 @@ UserSteps.init (
     }
 );
 
-// the model for user steps that the users input 
-
-//needs sequelize and bcrypt
-
-//gonna need a class called step data
-
-// the steps that the user inputs
-
-//needs username, steps, date created
+module.exports = UserSteps;
