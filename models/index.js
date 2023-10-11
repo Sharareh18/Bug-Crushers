@@ -6,6 +6,7 @@ const sequelize = require('../config/connection');
 
 // imports the User, UserProfile, and UserConnection models
 const User = require('./User');
+
 const UserProfile = require('/UserProfile');
 const UserConnection = require('./UserConnection');
 
@@ -39,3 +40,8 @@ module.exports ={
     UserConnection,
     sequelize, // this is the connection instance for use in other parts of the app
 };
+
+
+
+
+

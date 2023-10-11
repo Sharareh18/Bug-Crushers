@@ -1,3 +1,4 @@
+
 // imports required libraries & modules
 const passport = require('passport'); // Passport for authentication
 const User = require('./models/User'); // User model
@@ -9,6 +10,7 @@ const routes = require('./controllers'); // route definitions
 const helpers = require('./utils/helpers'); // helper functions
 const sequelize = require('./config/connection'); // Sequelize ORM for Node.js
 
+
 // creates a new sequelize store using the express-session package
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -18,8 +20,10 @@ const app = express();
 // defines the port number for the web server
 const PORT = process.env.PORT || 3001;
 
+
 // creates a Handlebars instance with helper functions
 const hbs = exphbs.create({ helpers });
+
 
 // configures & links a session object with the Sequelize store
 const sess = {

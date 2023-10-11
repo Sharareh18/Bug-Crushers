@@ -1,6 +1,7 @@
 -- drops the database if it exists
 DROP DATABASE IF EXISTS user_db;
 
+
 -- creates a new database
 CREATE DATABASE user_db;
 
@@ -48,3 +49,8 @@ ALTER TABLE UserConnection
 ADD CONSTRAINT FK_UserConnection_User_2
 FOREIGN KEY (user_id_2)
 REFERENCES Users(id);
+=======
+CREATE DATABASE user_db;
+
+USE user_db;
+
