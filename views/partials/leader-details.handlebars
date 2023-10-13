@@ -1,0 +1,15 @@
+<tr>
+    <td>
+        {{#if this.numberOne}}
+            <img src="images/1stPlace.png" style = "height: 45px; width: 45px;">
+        {{else if this.numberTwo}}
+            <img src="images/2ndPlace.png" style = "height: 45px; width: 45px;">
+        {{else if this.numberThree}}
+            <img src="images/3rdPlace.png" style = "height: 45px; width: 45px;">
+        {{else}}
+            <div>{{placeFormatter @index }} </div>
+        {{/if}}
+    </td> <!--Rank-->
+    <td>{{this.username}}</td> <!--Username-->
+    <td>{{this.UserProfile.step_count}}</td> <!--Step Count-->
+</tr>

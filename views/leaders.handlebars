@@ -1,0 +1,31 @@
+<div class="container-wrap">
+  <section id="leaderboard">
+      <nav class="ladder-nav">
+          <div class="ladder-title">
+          <h1>Standings</h1>
+          </div>
+          <div class="ladder-search">
+              <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Team, Player..." />
+          </div>
+      </nav>
+      <table id="rankings" class="leaderboard-results" width="100%">
+          <thead>
+              <tr>
+                  <th>Rank</th>
+                  <th>Name</th>
+                  <th>Step Count</th> <!--
+                  <th>P1</th>
+                  <th>P2</th>
+                  <th>Games Played</th>
+                  <th>PTS</th> -->
+              </tr>
+          </thead>
+          <tbody>
+              <!--Leader-details goes here -->
+              {{#each leaders}}
+                {{>leader-details}} <!-- set rank equal to the leaderCounter (current rank number) -->
+              {{/each}}
+          </tbody>
+      </table>
+  </section>
+</div>

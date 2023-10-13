@@ -1,37 +1,61 @@
 const { User } = require("../models");
 //require the index file, it has the created relationship between the two tables
-
 const userdata = [
     {
-        first_name: "Josh",
-        last_name: "Jacobs",
-        user_name: "JJacobs",
+        username: "JJacobs",
         email: "j_jacobs@gmail.com",
         password: "myAwesomePassword",
-    }, 
+    },
     {
-        first_name: "Samantha",
-        last_name: "Lee",
-        user_name: "samlee",
+        username: "samlee",
         email: "samantha.lee@hotmail.com",
         password: "mysecretpassword123",
     },
     {
-        first_name: "Michael",
-        last_name: "Chen",
-        user_name: "mchen",
+        username: "mchen",
         email: "michael.chen@email.com",
         password: "1qaz2wsx3edc4rfv",
     },
     {
-        first_name: "Emily",
-        last_name: "Rodriguez",
-        user_name: "emrodriguez",
-        email: "emily.rodriguez@email.com",
+        username: "certifiedawesome",
+        email: "certifiedawesome@email.com",
         password: "P@ssw0rd!",
+    },
+    {
+        username: "jskywalker",
+        email: "jskywalker@yahoo.com",
+        password: "newPassword123",
+    },
+    {
+        username: "jdoe",
+        email: "jdoe45@walking.com",
+        password: "userPassword123",
+    },
+    {
+        username: "amiller",
+        email: "amilliondollars@bing.com",
+        password: "amillion123",
+    },
+    {
+        username: "iamwalking",
+        email: "iamwalkingtowork@gmail.com",
+        password: "walking2work",
+    },
+    {
+        username: "mikejones",
+        email: "catslovedogs@email.com",
+        password: "catsanddogs",
+    },
+    {
+        username: "jeffbezos",
+        email: "amazon@amazon.com",
+        password: "buyfromamazon",
+    },
+    {
+        username: "elonmusk",
+        email: "elonmusk@gmail.com",
+        password: "tesla123",
     }
 ]
-
 const seedUsers = () => User.bulkCreate(userdata);
-
 module.exports = seedUsers;

@@ -10,20 +10,14 @@ const routes = require('./controllers'); // route definitions
 const helpers = require('./utils/helpers'); // helper functions
 const sequelize = require('./config/connection'); // Sequelize ORM for Node.js
 
-
 // creates a new sequelize store using the express-session package
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
 // creates an instance of Express
 const app = express();
-
 // defines the port number for the web server
 const PORT = process.env.PORT || 3001;
-
-
 // creates a Handlebars instance with helper functions
 const hbs = exphbs.create({ helpers });
-
 
 // configures & links a session object with the Sequelize store
 const sess = {
@@ -37,21 +31,16 @@ const sess = {
 // adds Passport for user authentication & session management as Express.js middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
 // uses the session configuration as Express.js middleware
 app.use(session(sess));
-
 // sets Handlebars as the view engine for rendering dynamic web pages
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
 // parses JSON & URL-encoded data in incoming requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 // serve static files (e.g., stylesheets, client-side scripts) from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
-
 // sets up the application to use the defined routes for handling web requests
 app.use(routes);
 
