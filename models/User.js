@@ -1,13 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
-
+const bcrypt = require('bcrypt');
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
-
 User.init(
   {
     id: {
@@ -16,22 +14,13 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    user_name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       isAlphanumeric: true,
-      //set a username max length?
-      /*validate: {
-        len: [15]
-      }*/
+      validate: {
+        len: [30]
+      }
     },
     email: {
       type: DataTypes.STRING,
@@ -53,6 +42,14 @@ User.init(
         return newUserData;
       },
     },
+    indexes: [
+    //adds unique index to the email field for faster lookups
+    //when querying for user, still query by their email... the database will use the index without having to specify
+      {
+        unique: true,
+        fields: ["email"]
+      }
+    ],
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -60,5 +57,4 @@ User.init(
     modelName: 'user',
   }
 );
-
 module.exports = User;
