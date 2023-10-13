@@ -1,6 +1,8 @@
 const router = require('express').Router(); // imports the router from the Express library
+
 const { User, UserProfile, UserConnection } = require('../models'); // imports the User modelk for working witu user data
 const withAuth = require('../utils/auth'); // imports the 'withAuth' middleware for authentication
+
 // prevents non-logged-in users from viewing the homepage
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -9,8 +11,10 @@ router.get('/', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       order: [['name', 'ASC']], // orders the results by the 'name' field in ascending order
     });
+
     // maps user data to plain JavaScript objects for easier rendering
     const users = userData.map((project) => project.get({ plain: true }));
+
     // renders the 'homepage' template, passing user data and the 'logged_in' flag
     res.render('homepage', {
       users,
@@ -26,6 +30,7 @@ router.get('/login', (req, res) => {
     res.redirect('/'); // redirects to the homepage
     return;
   }
+
   res.render('login'); // renders the 'login' template for users who are not logged in
 });
 //get route to retrieve top ten step leaders from db
@@ -53,4 +58,10 @@ router.get("/leaders", async (req, res) => {
     res.status(500).json(err)
   }
 })
+
+
+  res.render('login'); // renders the 'login' template for users who are not logged in
+});
+
 module.exports = router; // exports the router to be used by other parts of the application
+

@@ -1,5 +1,6 @@
 // imports required dependencies for routing
 const router = require('express').Router();
+
 // imports user-related routes from userRoutes.js
 const apiRoutes = require('./api');
 // import home-related routes from homeRoutes.js
@@ -10,3 +11,4 @@ router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
 // export the configured router to be used in the app
 module.exports = router;
+

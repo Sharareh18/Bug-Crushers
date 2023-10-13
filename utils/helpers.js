@@ -1,3 +1,4 @@
+
 module.exports = {
     withAuth: (req, res, next) => {
       // If the user isn't logged in, redirect them to the login route
@@ -13,3 +14,4 @@ module.exports = {
       return index + "th";
     },
   }
+

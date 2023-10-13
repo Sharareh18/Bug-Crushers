@@ -1,5 +1,8 @@
 # Bug-Crushers
+
 A Step Challenge Application for users
+
+
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Table of Contents
@@ -10,6 +13,7 @@ A Step Challenge Application for users
   * [Credits](#credits)
   * [Test](#test)
   * [Questions](#questions)
+
 
   ## Description
   Bug-Crushers is a web application that is built using Node.js and Express.js to create a RESTful API and Handlebars.js as the template engine.  The folders in this web application are structured per the MVC paradigm.
@@ -29,7 +33,9 @@ Screenshots:
   ## License
   This project is covered under the following license: MIT
   https://lbesson.mit-license.org/
+
   
+
   ## Credits
   Online Tutorials and Resources:
 
@@ -39,6 +45,7 @@ University of California Irvine Full Stack Development Bootcamp 2023 Resources:
 
 -  UCI Bootcamp Slack Study Group:  https://ucivirtfsfpt0-bgx3057.slack.com/archives/C056LT7DUUF
 -  UCI Web Development office hours:  Instructor Logan Garland and TA David Cox
+
 -  UCI Bootcamp Module 14 MVC: activities 8, 20, 24, 28
   
   ## Test
@@ -51,3 +58,4 @@ University of California Irvine Full Stack Development Bootcamp 2023 Resources:
   [jushendhillon9](https://github.com/jushendhillon9)
   [vts17](https://github.com/vts17)
    [sharareh18](https://github.com/sharareh18)
+
