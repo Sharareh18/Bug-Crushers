@@ -57,11 +57,50 @@ router.get("/leaders", async (req, res) => {
     console.log(err)
     res.status(500).json(err)
   }
-})
-
-
-  res.render('login'); // renders the 'login' template for users who are not logged in
 });
+
+//get route to retrieve User Profile page
+router.get("/profile", async (req, res) => {
+  try {
+    // Find the logged in user based on the session id
+    const dbProfileData = await UserProfile.findOne({
+      where: {
+        user_id: req.session.user_id
+      }
+    })
+    const profile = dbProfileData.get({ plain: true });
+    console.log(profile);
+    res.render('profile', {profile});
+  }
+  catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+});
+
+// get route to retrieve the User Profile while making sure they're logged in
+
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session id
+//     const dbProfileData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: UserProfile }],
+//     });
+
+//     const user = dbProfileData.get({ plain: true });
+
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+
 
 module.exports = router; // exports the router to be used by other parts of the application
 
