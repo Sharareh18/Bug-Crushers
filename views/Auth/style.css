@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f4f8;
+    background-color: #6c6fc8;
   }
   
   .login-container {
@@ -12,17 +12,61 @@ body {
     margin: 100px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .header-container {
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: white;
+  }
+
+  .nav-bar-container {  
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+  }
+
+
+  .nav-links-item {
+    display: flex;
+   justify-content: space-between;
+    margin: 5;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black:
+  }
+ 
+.success-tips {
+  width:500px;
+  margin: 100px auto;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  border-color: #5054cb;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #5054cb;
+}
+
+
+
   h1 {
     margin: 0 0 16px;
-    color: #1a73e8;
+    color: #5055CB;
     text-align: center;
   }
   
   label {
     display: block;
     margin: 8px 0;
-    color: #1a73e8;
+    color: #5055CB;
   }
   
   input[type="text"],
@@ -37,7 +81,7 @@ body {
   input[type="submit"] {
     width: 100%;
     padding: 8px;
-    background-color: #1a73e8;
+    background-color: #5055CB;
     border: none;
     border-radius: 4px;
     color: white;
@@ -47,6 +91,6 @@ body {
   }
   
   input[type="submit"]:hover {
-    background-color: #1669c1;
+    background-color: #5055CB;
   }
   
