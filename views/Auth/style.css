@@ -9,44 +9,40 @@ body {
     background-color: white;
     border: 1px solid #d1d1d1;
     border-radius: 4px;
-    margin: 100px auto;
+    margin: 50px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 5px auto;
   }
 
-  .header-container {
-    width: 500px;
-    text-align: left;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    color: white;
-  }
-
-  .nav-bar-container {  
-    display:inline-flexbox
-    justify-content: space-between;
-    align-items: first baseline;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    color: white;
-    font-size: 20px;
-  }
-
-
-  .nav-links-item {
+  .navbar {
     display: flex;
-   justify-content: space-between;
-    margin: 5;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: black:
+    justify-content: space-between;
+    background-color: #333;
+    padding: 5px 0;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    
   }
- 
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin: 0 100px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+
 .success-tips {
   width:500px;
-  margin: 100px auto;
+  margin: 50px auto;
+  margin-left: 5px;
   background-color: white;
   border: 1px solid #d1d1d1;
   border-color: #5054cb;
@@ -58,10 +54,16 @@ body {
 
   h1 {
     margin: 0 0 16px;
-    color: #5055CB;
+    color: white;
     text-align: center;
   }
   
+  h2 {
+      margin: 0 0 16px;
+      color: #5054cb;
+      text-align: center;
+    }
+
   label {
     display: block;
     margin: 8px 0;
