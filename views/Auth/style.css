@@ -14,16 +14,17 @@ body {
   }
 
   .header-container {
+    width: 500px;
     text-align: left;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     color: white;
   }
 
   .nav-bar-container {  
-    display: flex;
+    display:inline-flexbox
     justify-content: space-between;
     align-items: first baseline;
     margin-bottom: 20px;
@@ -54,8 +55,6 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #5054cb;
 }
-
-
 
   h1 {
     margin: 0 0 16px;
