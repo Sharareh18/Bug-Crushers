@@ -11,7 +11,8 @@ body {
     border-radius: 4px;
     margin: 50px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-right: 5px auto;
+    margin-right: 50px auto;
+    padding-top: -100px;
   }
 
   .navbar {
@@ -77,6 +78,7 @@ body {
     border: 1px solid #d1d1d1;
     border-radius: 4px;
     font-size: 14px;
+    margin-left: -8px;
   }
   
   input[type="submit"] {
