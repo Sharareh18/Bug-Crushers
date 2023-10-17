@@ -4,33 +4,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum</title>
+  <title>Your Step Tracking Web App</title>
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
 <body>
   <header>
-    <h1>Welcome to the Four Seasons Museum</h1>
+    <h1>Your Step Tracking Web App</h1>
   </header>
   <nav>
-    <a href="/">Home</a>
     {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
+      <button id="logout" class="btn-no-style">Logout</button>
+      <a href="/home">Home</a>
+      <a href="/profile">Profile</a>
     {{else}}
-    <a href="/login">Login</a>
+      <a href="/login">Login</a>
+      <a href="/signup">Sign Up</a>
     {{/if}}
   </nav>
   <main>
     <aside>
-      <h2>Enjoy the galleries!</h2>
+      <h2>Enjoy tracking your steps!</h2>
     </aside>
     <div class="gallery">
       {{{body}}}
     </div>
   </main>
   {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
+    <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 

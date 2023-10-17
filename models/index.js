@@ -5,9 +5,9 @@ const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 
 // imports the User, UserProfile, and UserConnection models
-const User = require('./User');
+const User = require('./models');
 
-const UserProfile = require('/UserProfile');
+const UserProfile = require('./UserProfile');
 const UserConnection = require('./UserConnection');
 
 // defines relationships between the models
