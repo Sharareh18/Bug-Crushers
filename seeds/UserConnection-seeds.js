@@ -91,5 +91,5 @@ const userconnectiondata = [
         status: "accepted"
     }
 ]
-const seedUserConnections = () => { UserConnection.bulkCreate(userconnectiondata) };
+const seedUserConnections = () => UserConnection.bulkCreate(userconnectiondata);
 module.exports = seedUserConnections;
