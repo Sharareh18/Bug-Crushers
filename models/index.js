@@ -34,7 +34,7 @@ UserConnection.belongsTo(User, {
 });
 
 // exports the models & the Sequelize instance
-module.exports ={
+module.exports = {
     User,
     UserProfile,
     UserConnection,
