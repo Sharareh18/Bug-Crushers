@@ -2,10 +2,11 @@
   <section id="leaderboard">
       <nav class="ladder-nav">
           <div class="ladder-title">
-          <h1>Standings</h1>
+            <h1>TOP TEN LEADERBOARD</h1>
+            <ion-icon name="bug" id = "bug"></ion-icon>
           </div>
           <div class="ladder-search">
-              <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search Team, Player..." />
+              <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search for a User by Username" />
           </div>
       </nav>
       <table id="rankings" class="leaderboard-results" width="100%">
@@ -20,7 +21,7 @@
                   <th>PTS</th> -->
               </tr>
           </thead>
-          <tbody>
+          <tbody id = "tableBody">
               <!--Leader-details goes here -->
               {{#each leaders}}
                 {{>leader-details}} <!-- set rank equal to the leaderCounter (current rank number) -->
