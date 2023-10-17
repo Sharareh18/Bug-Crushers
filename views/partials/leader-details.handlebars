@@ -11,5 +11,8 @@
         {{/if}}
     </td> <!--Rank-->
     <td>{{this.username}}</td> <!--Username-->
-    <td>{{this.UserProfile.step_count}}</td> <!--Step Count-->
+    <td>
+        {{addCommas this.UserProfile.step_count}}
+        <img src="images/footsteps.png" style = "height: 30px; width: 30px;">
+    </td> <!--Step Count-->
 </tr>
