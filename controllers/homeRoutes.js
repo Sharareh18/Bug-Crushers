@@ -33,35 +33,61 @@ router.get('/login', (req, res) => {
 
   res.render('login'); // renders the 'login' template for users who are not logged in
 });
+
+
 //get route to retrieve top ten step leaders from db
 router.get("/leaders", async (req, res) => {
-  try {
-    const dbLeadersData = await User.findAll({
-      include: [{
-        model: UserProfile,
-        attributes: ["step_count"],
-        order: [["step_count", "DESC"]] //this orders the associated UserProfile model by stepcount*/
-      }],
-      order: [[UserProfile, "step_count", "DESC"]], //this orders the main model by the UserProfile step_count field*/
-      //need both order statements
-      limit: 10,
-    })
-    const leaders = dbLeadersData.map((leader) => leader.get({ plain: true }));
-    leaders[0].numberOne = true;
-    leaders[1].numberTwo = true;
-    leaders[2].numberThree = true;
-    console.log(leaders);
-    res.render("leaders", {leaders});
+
+  const showAll = req.query.showAll;
+
+  if (showAll) {
+    try {
+      const dbAllUsersData = await User.findAll({
+        include: [{
+          model: UserProfile,
+          attributes: ["step_count"],
+        }],
+        order: [[UserProfile, "step_count", "DESC"]]
+      })
+      const allUsers = dbAllUsersData.map((User) => User.get({ plain: true })); //all Users is sorted by 
+      for (let i = 0; i < allUsers.length; i++)
+      {
+        allUsers[i].rank = i+1;
+      }
+      res.json(allUsers);
+    }
+    catch (err) {
+      console.log(error);
+      res.status(500).json(err);
+    }
   }
-  catch (err) {
-    console.log(err)
-    res.status(500).json(err)
+  else {
+    try {
+      const dbLeadersData = await User.findAll({
+        include: [{
+          model: UserProfile,
+          attributes: ["step_count"],
+           //orders the associated UserProfile model by stepcount*/
+        }],
+        limit: 10,
+        order: [[UserProfile, "step_count", "DESC"]]
+      })
+      const leaders = dbLeadersData.map((leader) => leader.get({ plain: true }));
+      leaders[0].numberOne = true;
+      leaders[1].numberTwo = true;
+      leaders[2].numberThree = true;
+      res.render("leaders", {leaders});
+      }
+    catch (err) {
+      console.log(err)
+      res.status(500).json(err)
+    }
   }
 })
+  
 
+//get route to retrieve all Users (and UserProfiles) from db
 
-  res.render('login'); // renders the 'login' template for users who are not logged in
-});
 
 module.exports = router; // exports the router to be used by other parts of the application
 

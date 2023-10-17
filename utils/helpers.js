@@ -13,5 +13,8 @@ module.exports = {
       index = index + 1;
       return index + "th";
     },
+    addCommas: (number) => {
+      return number.toLocaleString();
+    }
   }
 
