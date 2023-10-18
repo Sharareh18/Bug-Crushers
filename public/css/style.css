@@ -1,5 +1,6 @@
 /* Codepen Specific */
 * {
+
     margin:0;
     padding:0;
     font-family: "Lilita One", cursive; 
@@ -24,12 +25,147 @@
       border: none;
       transition: all 0.2s ease;
       -webkit-transition: all 0.2s ease;
+
+}
+input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date], .material.woocommerce-page[data-form-style="default"] input#coupon_code {
+    background-color:rgba(0,0,0,0.1);
+    border-radius: 4px;
+    border: 2px solid rgba(0,0,0,0);
+}
+/* /end Codepen Specific */
+
+/*Login page*/
+input[type=text2], input[type=email2], input[type=password2] {
+  background-color: #F1f1f1;
+}
+.login-nav {
+  display:flex;
+  flex-wrap:wrap;
+  text-align: center;
+  background:#5055CB;
+  padding:10px 10px;
+  border-radius:10px;
+  border:1px solid #686EF9;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.logo {
+  justify-content: right;
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+
+.login-title {
+  flex:2;
+  flex-wrap: nowrap;
+  text-align: left;
+  margin-right: 220px;
+  margin-left:20px;
+  margin-top: 50px;
+ color:#f89521;
+}
+
+.nav-link {
+  color: #f89521;
+  margin-right: 50px;
+ 
+}
+
+#menuitems {
+margin-top: 20px;
+font-size: 18px;
+}
+
+
+.login-row {
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: row-reverse;
+  margin-left: 30px;
+  margin-right: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10px;
+  margin-right: 80px;
+  
+}
+
+.page-title {
+  color:#c7c6c6;
+}
+label {
+  color: #c7c6c6;
+}
+.username-signup {
+  background-color:#f1f1f1e5;
+}
+
+.success-tips {
+  width:500px;
+  margin: -10px auto;
+  margin-left: 50px;
+  background-color: #5055cb;
+  border: 1px solid #d1d1d1;
+  border-color: #5055cb;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(252, 252, 252, 0.1);
+  color: #a2a6f5;
+}
+
+.tip {
+  font-style: normal!important;
+  color: #ffffff
+}
+
+article {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+footer {
+  background-color: #888DFF;
+  margin-top: 100px;
+}
+
+#footer-row { 
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  margin-right: 10px;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/*homepage*/
+
+.link-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10px;
+  margin-right: 80px;
+  
+}
+
+
   }
-  input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date], .material.woocommerce-page[data-form-style="default"] input#coupon_code {
-      background-color: rgba(0,0,0,0.1);
-      border-radius: 4px;
-      border: 2px solid rgba(0,0,0,0);
-  }
+  .ladder-title {
+    flex:2;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+
   /* /end Codepen Specific */
   /* User Profile*/
   #userProfile {
@@ -140,48 +276,97 @@
     color:#747474;
     font-size:25px;
     font-weight:bold;
+
+ 
+
   }
-  .leaderboard-results tbody td {
-    padding:15px 25px;
-    background:#1a1a1a;
-    font-size:16px;
-    border-bottom:5px solid #232323;
+  .ladder-search {
+    flex:1;
+    padding-right:25px;
   }
-  .leaderboard-results tbody td:nth-of-type(7) {
+  .ladder-title {
+    font-size:20px;
+    color:#888DFF!important;
     font-weight:bold;
+    text-transform:uppercase;
   }
-  .leaderboard-results tbody tr:hover td {
-      background:#1d1d1d;
-      color:#686EF9;
-      cursor: pointer;
+  .ladder-search input {
+      color:white
   }
-  .leaderboard-results tbody tr {
-    color:#747474;
+  .ladder-search input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #888DFF;
   }
-  .leaderboard-results tbody tr:first-child {
+  .ladder-search input::-moz-placeholder { /* Firefox 19+ */
+      color: #888DFF;
+  }
+  .ladder-search input:-ms-input-placeholder { /* IE 10+ */
+      color: #888DFF;
+  }
+  .ladder-search input:-moz-placeholder { /* Firefox 18- */
+      color: #888DFF;
+  }
+/* /end Ladder Navigation */
+/* Leaderboard Results */
+.leaderboard-results {
+  text-align:left;
+  border-collapse: collapse;
+}
+.leaderboard-results thead th {
+  padding: 25px;
+  color:#747474;
+  font-size:25px;
+  font-weight:bold;
+}
+.leaderboard-results tbody td {
+  padding:15px 25px;
+  background:#1a1a1a;
+  font-size:16px;
+  border-bottom:5px solid #232323;
+}
+.leaderboard-results tbody td:nth-of-type(7) {
+  font-weight:bold;
+}
+.leaderboard-results tbody tr:hover td {
+    background:#1d1d1d;
     color:#686EF9;
-  }
-  .leaderboard-results tbody span {
-    font-weight:bold;
-    padding:10px 15px;
-    border-radius:50%;
-  }
-  .leaderboard-results tbody tr:first-child span {
-    background:#5055CB;
-    color:white;
-  }
-  .leaderboard-results tbody tr span {
-    background:#262626;
-    color:#747474;
-  }
+    cursor: pointer;
+}
+.leaderboard-results tbody tr {
+  color:#747474;
+}
+.leaderboard-results tbody tr:first-child {
+  color:#686EF9;
+}
+.leaderboard-results tbody span {
+  font-weight:bold;
+  padding:10px 15px;
+  border-radius:50%;
+}
+.leaderboard-results tbody tr:first-child span {
+  background:#5055CB;
+  color:white;
+}
+.leaderboard-results tbody tr span {
+  background:#262626;
+  color:#747474;
+}
 td div {
-  font-size: 25px;
-  vertical-align: middle;
-  margin-left: 10px;
+font-size: 25px;
+vertical-align: middle;
+margin-left: 10px;
 }
 td img {
-  margin-bottom: -5px;
+margin-bottom: -5px;
 }
+
+tbody tr td:nth-child(3) {
+font-size: 30px;
+}
+
+tbody tr td:nth-child(2) {
+font-size: 20px;
+}
+
 
 tbody tr td:nth-child(3) {
   font-size: 30px;
@@ -282,3 +467,5 @@ tbody tr td:nth-child(2) {
 
     /* end of userProfile */
   
+
+

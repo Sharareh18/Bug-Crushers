@@ -142,4 +142,5 @@ const userconnectiondata = [
     }
 ]
 const seedUserConnections = () => UserConnection.bulkCreate(userconnectiondata) ;
+
 module.exports = seedUserConnections;

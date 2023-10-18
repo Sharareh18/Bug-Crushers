@@ -130,6 +130,7 @@ router.get("/profile/:userid", async (req, res) => {
     res.status(500).json(err)
   }
 });
+
   
 
 
@@ -159,6 +160,31 @@ router.put("/profile/:userid", async (req, res) => {
     res.status(500).json(err)
   }
 })
+
+
+
+
+// get route to retrieve the User Profile while making sure they're logged in
+
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session id
+//     const dbProfileData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: UserProfile }],
+//     });
+
+//     const user = dbProfileData.get({ plain: true });
+
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 
 
 
