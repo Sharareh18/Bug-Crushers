@@ -1,6 +1,27 @@
-<div class="row justify-space-between-md">
-  <div class="login-card">
-    <h2 class="page-title">Login</h2>
+<div class="container-wrap">
+  <section id="login">
+      <nav class="login-nav">
+        <div class="logo" id="logo">
+          <img src="images/logo.png" style = "height: 130px; width: 200px;" id="logo">
+        </div>
+          <div class="login-title">
+            <h1>...take some steps </h1>
+          </div>
+          <div class="navbar justify-content-end" id="menuitems">
+		 
+			  <a class="nav-link" aria-current="page" href="http://localhost:3001/login">Register</a>
+			<br><br>
+			  <a class="nav-link" href="http://localhost:3001/login">Login</a>	 
+        <br><br>
+        <a class="nav-link" href="http://localhost:3001/leaders">Leaders</a> 
+		</div>
+</nav>
+</section>
+</div>
+<div class="container-wrap">
+<div class="login-row" id="login-row">
+  <div class="login-card" id="login-card">
+    <h2 class="page-title" id="page-title">Login</h2>
     <form class="form login-form">
       <div class="form-group">
         <label for="email-login">Email:</label>
@@ -15,26 +36,131 @@
       </div>
     </form>
   </div>
-  <div class="login-card">
+  <div class="login-card" id="login-card">
     <h2 class="page-title">Signup</h2>
     <form class="form signup-form">
       <div class="form-group">
         <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="username-signup" />
+        <input class="form-input" type="text2" id="username-signup" />
       </div>
       <div class="form-group">
         <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
+        <input class="form-input" type="text2" id="email-signup" />
       </div>
       <div class="form-group">
         <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
+        <input class="form-input" type="password2" id="password-signup" />
       </div>
       <div class="form-group">
         <button class="btn btn-primary" type="submit">signup</button>
       </div>
     </form>
   </div>
+ 
+<div class="success-tips">
+      <h2 class="title">Success Tips: </h2>
+      <article><p class="tip">Change Your Shoes </p>
+       <ul>
+        <li>Avoid walking in shoes that create tension on your joints</li>
+        <li>Don't wear shoes that are too tight or loose</li>
+        <li>Don't forget to wear clean socks!</li>
+    </ul>
+  </p>
+</article>
+
+
+        <article><p class="tip">Stay Hydrated</p>
+      <ul>
+        <li>Avoid drinking alcohol and soda before or after your walk.</li>
+        <li>Drink plenty of water throughout the day</li>
+        <li>Avoid drinking too much water before bed</li>
+      </ul></p></article>
+
+
+ <article><p class="tip">Wear the right clothes</p>
+      <ul>
+        <li>Don't wear clothes that are too tight or loose</li>
+        <li>Don't wear clothes that restrict airflow or movement</li>
+        <li>Consider bringing a change of comfortable or clean clothes</li>
+      </ul>
+      <p><h3></h3></p></article>
+
+   
+    </div>
+
+
+
+  <div class="success-tips">
+      <h2 class="title">Welcome!</h2>
+     <article><p class="tip">Take a Challenge </p>
+      <p>You've taken the first step to becoming healthier.  
+        Now, take the next step and join a challenge.  
+        You can join a challenge by singing up or loging in. 
+        Once logged in you can click to join any of the challenges currently 
+        running. 
+        <br>
+        Each challenge will specify a number of steps you need to complete daily and 
+        enter into your profile.    </p>
+</article>
+
+      <article><p class="tip">Question?</p>
+      <p>We're here for you.  If you have any questions please feel free to contact us at 
+        through one of our social media channels linked below. 
+      </p></article>
+
+     
+   
+    </div>
+  </div>
 </div>
+
+
+<footer class="text-left text-lg-start">
+  <div class="container p-4" id="footer-row">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Bug Crusher</h5>
+        <p>
+          Bug Crusher is a web application that runs monthly walking challenges 
+          for anyone who wants to participate. Let's get some steps...
+        </p>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Bug Socials</h5>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="https://www.instagram.com/bugcrusher_/" class="text-dark">Instagram</a>
+          </li>
+          <li>
+            <a href="https://twitter.com/BugCrusher_" class="text-dark">Twitter</a>
+          </li>
+          <li>
+            <a href="https://www.pinterest.com/BugCrusher_/" class="text-dark">Pinterest</a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase ">Health</h5>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="https://www.heart.org" class="text-dark">American Heart Association</a>
+          </li>
+          <li>
+            <a href="https://www.diabetes.org" class="text-dark">American Diabetes Association</a>
+          </li>
+          <li>
+            <a href="https://americawalks.org/" class="text-dark">America Walks</a>
+          </li>
+          
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <div class="text-center p-3" style="background-color: #5055CB;">
+    © 2023 The DeBuggers
+  </div>
+</footer>
 
 <script src="./js/login.js"></script>
