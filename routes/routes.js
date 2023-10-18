@@ -1,28 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../models');
+const { User, UserProfile } = require('../User');
 
-router.get('/', (req, res) => {
-  res.render('layouts/main');
-});
-
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-router.post('/signup', async (req, res) => {
-  const { username, email, password, confirmPassword } = req.body;
-
-  if (!username || !email || !password || password !== confirmPassword) {
-    return res.render('signup', { errors: ['Validation error message'] });
-  }
-
+router.get('/profile/:id', async (req, res) => {
   try {
-    const user = await User.create({ username, email, password });
-    res.redirect('/profile');
+    const userId = req.params.id;
+    const user = await User.findByPk(userId, {
+      include: UserProfile,
+    });
+
+    if (user) {
+      res.render('profile', { user });
+    } else {
+      res.status(404).send('User not found');
+    }
   } catch (error) {
     console.error(error);
-    res.render('signup', { errors: ['Database error message'] });
+    res.status(500).send('Error retrieving user profile');
   }
 });
 

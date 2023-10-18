@@ -1,5 +1,5 @@
 const passport = require('passport');
-const User = require('./models/models');
+const User = require('./models/User');
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -7,17 +7,6 @@ const exphbs = require('express-handlebars');
 const routes = require('./routes/routes');
 const helpers = require('./utils/helpers');
 const sequelize = require('./config/connection');
-
-// imports required libraries & modules
-const passport = require('passport'); // Passport for authentication
-const User = require('./models/User'); // User model
-const path = require('path'); // 'path' module for file path handling
-const express = require('express'); // Express
-const session = require('express-session'); // Express Session
-const exphbs = require('express-handlebars'); // Express Handlebars
-const routes = require('./controllers'); // route definitions
-const helpers = require('./utils/helpers'); // helper functions
-const sequelize = require('./config/connection'); // Sequelize ORM for Node.js
 
 // creates a new sequelize store using the express-session package
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -37,12 +26,10 @@ const sess = {
   store: new SequelizeStore({ db: sequelize }),
 };
 
-// Use session middleware before initializing Passport
+// uses session middleware before initializing Passport
 app.use(session(sess));
 app.use(passport.initialize());
 app.use(passport.session());
-// uses the session configuration as Express.js middleware
-app.use(session(sess));
 // sets Handlebars as the view engine for rendering dynamic web pages
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
