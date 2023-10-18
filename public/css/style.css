@@ -1,25 +1,31 @@
 /* Codepen Specific */
 * {
-  margin:0;
-  padding:0;
-  font-family:Helvetica, Arial, sans-serif;
-  font-family: "Lilita One", cursive; 
-}
-body {
-  background:#232323;
-}
 
-input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
-    padding: 10px;
-    width: 100%;
-    font-size: 14px;
-    font-family: inherit;
-    line-height: 24px;
-    color: #555;
-    background-color: #F1f1f1;
-    border: none;
-    transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
+    margin:0;
+    padding:0;
+    font-family: "Lilita One", cursive; 
+  }
+  body {
+    background:#232323;
+  }
+
+  .linebreak {
+    height: 2px;
+    flex-grow: 100%;
+  }
+
+  input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+      font-family: inherit;
+      line-height: 24px;
+      color: #555;
+      background-color: #F1F1F1;
+      border: none;
+      transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+
 }
 input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date], .material.woocommerce-page[data-form-style="default"] input#coupon_code {
     background-color:rgba(0,0,0,0.1);
@@ -150,11 +156,23 @@ footer {
   margin-right: 80px;
   
 }
-/* Ladder Navigation */
-  #leaderboard {
-      padding:50px;
+
+
   }
-  .ladder-nav {
+  .ladder-title {
+    flex:2;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+
+  /* /end Codepen Specific */
+  /* User Profile*/
+  #userProfile {
+    padding:50px;
+    flex:2;
+}
+    .profile-nav {
       display:flex;
       flex-wrap:wrap;
       align-items: center;
@@ -163,23 +181,104 @@ footer {
       border-radius:10px;
       border:1px solid #686EF9;
   }
-  .ladder-title {
-    flex:2;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
 
+    .profile-title {
+      flex:2;
+      font-size:20px;
+      color:#888DFF!important;
+      font-weight:bold;
+      text-transform:uppercase;
+    }
+    #userProfile {
+      display:flex;
+      flex-wrap:wrap;
+      align-items: center;
+    }
+    #image img {
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      border:5px solid #686EF9;
+    }
+    
+    #userProfile h2 {
+      color:white;
+      font-size:20px;
+      font-weight:bold;
+      text-transform:uppercase;
+      margin-bottom:25px;
+    }
+    
+  /* Ladder Navigation */
+    #leaderboard {
+        padding:50px;
+    }
+    .ladder-nav {
+        display:flex;
+        flex-wrap:wrap;
+        align-items: center;
+        background:#5055CB;
+        padding:10px 25px;
+        border-radius:10px;
+        border:1px solid #686EF9;
+    }
+    .ladder-title {
+      flex:2;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+
+    }
+    h1 {
+      font-size: 50px;
+      margin-left: 19px;
+      vertical-align: center;
+      padding-top: 10px;
+    }
+    #bug {
+      width: 55px;
+      height: 55px;
+      margin-left: 10px;
+    }
+    .ladder-search {
+      flex:1;
+      padding-right:25px;
+    }
+    .ladder-title {
+      font-size:20px;
+      color:#888DFF!important;
+      font-weight:bold;
+      text-transform:uppercase;
+    }
+    .ladder-search input {
+        color:white
+    }
+    .ladder-search input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #888DFF;
+    }
+    .ladder-search input::-moz-placeholder { /* Firefox 19+ */
+        color: #888DFF;
+    }
+    .ladder-search input:-ms-input-placeholder { /* IE 10+ */
+        color: #888DFF;
+    }
+    .ladder-search input:-moz-placeholder { /* Firefox 18- */
+        color: #888DFF;
+    }
+  /* /end Ladder Navigation */
+  /* Leaderboard Results */
+  .leaderboard-results {
+    text-align:left;
+    border-collapse: collapse;
   }
-  h1 {
-    font-size: 50px;
-    margin-left: 19px;
-    vertical-align: center;
-    padding-top: 10px;
-  }
-  #bug {
-    width: 55px;
-    height: 55px;
-    margin-left: 10px;
+  .leaderboard-results thead th {
+    padding: 25px;
+    color:#747474;
+    font-size:25px;
+    font-weight:bold;
+
+ 
+
   }
   .ladder-search {
     flex:1;
@@ -268,4 +367,105 @@ tbody tr td:nth-child(2) {
 font-size: 20px;
 }
 
-/* /end Leaderboard Results */
+
+tbody tr td:nth-child(3) {
+  font-size: 30px;
+}
+
+tbody tr td:nth-child(2) {
+  font-size: 20px;
+}
+
+  /* /end Leaderboard Results */
+
+
+  /*beginning of userProfile*/
+
+  #userProfile {
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #profilePicAndFriendsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  #bannerWings {
+    width: 500px;
+    height: 300px;
+    border: 10px solid black;
+    border-radius: 3%;
+    background-color: orangered;
+  }
+  
+  #profilePicture {
+    height: 115.5px;
+    width: 115.5px;
+    position: absolute;
+    left: 240px;
+    top: 201.5px;
+    border-radius: 95%;
+  }
+  
+  #friendsSection {
+    width: 500px;
+    margin-right: 100px;
+  }
+  
+  #friendsHeader {
+    text-align: center;
+  }
+  
+  #profileDetails {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  
+  #usernameContainer, #userFullNameContainer, #userBioContainer, #userStepCountContainer, #userProfilePicContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    width: 100%;
+  }
+  
+  #maxLength {
+    font-size: 9px;
+    text-align: left;
+    margin-left: 5px;
+  }
+  
+  #step-count, #bio {
+    font-size: 35px;
+  }
+  
+  #name, #stepCount {
+    font-size: 30px;
+    vertical-align: center;
+  }
+  
+  #friendsHeader {
+    color: goldenrod;
+    font-size: 50px;
+  }
+  
+  #returnArrow {
+    height: 90px;
+    width: 90px;
+  }
+
+  #returnButton {
+    background-color: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0px 2px 2px 2px;
+  }
+
+    /* end of userProfile */
+  
+
+

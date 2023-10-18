@@ -89,7 +89,58 @@ const userconnectiondata = [
         user_id_1: 11,
         user_id_2: 8,
         status: "accepted"
+    },
+    {
+        user_id_1: 10,
+        user_id_2: 9,
+        status: "accepted"
+    },
+    {
+        user_id_1: 2,
+        user_id_2: 16,
+        status: "accepted"
+    },
+    {
+        user_id_1: 2,
+        user_id_2: 20,
+        status: "accepted"
+    }, 
+    {
+        user_id_1: 7,
+        user_id_2: 12,
+        status: "accepted"
+    },
+    {
+        user_id_1: 7,
+        user_id_2: 13,
+        status: "accepted"
+    },
+    {
+        user_id_1: 7,
+        user_id_2: 14, 
+        status: "accepted"
+    },
+    {
+        user_id_1: 3,
+        user_id_2: 23, 
+        status: "accepted"
+    },
+    {
+        user_id_1: 23,
+        user_id_2: 24,
+        status: "accepted"
+    },
+    {
+        user_id_1: 23,
+        user_id_2: 25,
+        status: "accepted"
+    },
+    {
+        user_id_1: 15,
+        user_id_2: 12,
+        status: "accepted"
     }
 ]
-const seedUserConnections = () => UserConnection.bulkCreate(userconnectiondata);
+const seedUserConnections = () => UserConnection.bulkCreate(userconnectiondata) ;
+
 module.exports = seedUserConnections;

@@ -1,17 +1,27 @@
 const sequelize = require("../config/connection");
 const seedUsers = require("./user-seeds")
 const seedUserProfiles = require("./userProfile-seeds")
-const seedUserConnections = require("./userConnection-seeds");
+const seedUserConnections = require("./UserConnection-seeds");
 
 const seedAll = async () => {
-    await sequelize.sync({ force: true });
+    try {
+        await sequelize.sync({ force: true });
 
-    await seedUsers();
+        await seedUsers();
+        console.log('Users seeded successfully');
 
-    await seedUserProfiles();
+        await seedUserProfiles();
+        console.log('User profiles seeded successfully');
 
-    await seedUserConnections();
-    
+        await seedUserConnections();
+        console.log('User connections seeded successfully');
+
+        process.exit(0);
+    } 
+    catch (error) {
+        console.error('Error during seeding:', error);
+        process.exit(1);
+    }
     process.exit(0);
 };
 

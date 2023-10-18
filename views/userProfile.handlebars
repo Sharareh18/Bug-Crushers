@@ -1,66 +1,50 @@
-<div class="container-wrap">
-    <section id="userProfile">
-        <nav class="profile-nav">
-            <div class="profile-title">
-                <h1>Welcome {{full_name}}</h1>
+
+<div id = "userProfile">
+    <div id = "profilePicAndFriendsContainer">
+        <div id = id = "profilePicAndBackground">
+            <img id = "bannerWings" src = "/images/bannerWings.png">
+            <img id = "profilePicture" src = "{{profilePicture}}">
+        </div>
+        <div id = "friendsSection">
+            <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
+        </div>
+        <div>
+            <button id = "returnButton" >
+                <img id = "returnArrow" src = "/images/returnArrow.png">
+            </button>
+        </div>
+    </div>
+    <div class = "linebreak"></div>
+    <form id = "profileDetails" class="form new-profile-form">
+            <div id = "userFullNameContainer">
+                <div id = "fullName">
+                    <label id = "name">Name:</label>
+                    <div class = "linebreak"></div>
+                    <div id = "maxLength">Max Length: 50 Characaters</div>
+                </div>
+                <input maxlength="50" class="form-input full_name" type="text" id="name" name="name" value = "{{fullName}}">
             </div>
-
-            {{!-- <div class="row">
-                <div class="col-auto">
-                    <h2>Create Your Profile</h2>
+            <div id = "userBioContainer" class="form-group">
+                <div id = "userBio">
+                    <label id = "bio">Bio:</label>
+                    <div class = "linebreak"></div>
+                    <div id = "maxLength">Max Length: 255 Characaters</div>
                 </div>
-            </div> --}}
-
-            <div class="row mt-4">
-                <div class="col-md-6">
-                    <h2>Profile Information:</h2>
-
-                    <form class="form new-profile-form">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input class="form-input" type="text" id="name" name="name" value={{full_name}} />
-                        </div>
-                        <div class="form-group">
-                            <label for="bio">Bio:</label>
-                            <textarea class="form-input" id="bio" name="bio">Bio</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="step-count">Step Count:</label>
-                            <input class="form-input" type="number" id="step-count" name="step-count"
-                                value={{this.UserProfile.step_count}} />
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Profile Image (enter as URL):</label>
-                            <input class="form-input" type="Url" id="image" name="image"
-                                placeholder="https://example.com" pattern="https://.*" size="10" required />
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Create Profile</button>
-                        </div>
-                    </form>
+                <input maxlength="255" class="form-input bio" type="text" id="name" name="name" value = "{{bio}}">
+            </div>
+            <div id = "userStepCountContainer" class="form-group">
+                <div id = "userSteps">
+                    <label id = "stepCount">Step Count:</label>
                 </div>
+                <input class="form-input step_count" type="text" id="step-count" name="step-count" value={{stepCount}}>
+            </div>
+            <div id = "userProfilePicContainer" class="form-group">
+                <label for="image">Profile Image (enter as URL):</label>
+                <input class="form-input profile_picture" type="Url" id="image" name="image" placeholder="{{profilePicture}}" pattern="https://.*" size="10"required/>
+            </div>
+            <div class="form-group">
+                <button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>
+            </div>
+    </form>
+</div>
 
-                {{!-- <div class="col-md-6">
-                    <h3>Preview:</h3>
-                    <div class="row">
-                        <div class="col-auto">
-                            <img src="" alt="Profile Picture" class="profile-image-preview">
-                        </div>
-                        <div class="col">
-                            <h4 class="name-preview"></h4>
-                            <p><strong>Step Count:</strong> <span class="step-count-preview">5000</span></p>
-                            <p><strong>Bio:</strong> <span class="bio-preview"></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-
-            {{#if user}}
-            <h1>Welcome, {{full_name}}!</h1>
-            <p>Here's your profile:</p>
-            {{else}}
-            <h1>Log In</h1>
-            <p>Please log in to view your profile.</p>
-            {{
-            /if
-            }}
