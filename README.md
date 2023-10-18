@@ -39,7 +39,10 @@ University of California Irvine Full Stack Development Bootcamp 2023 Resources:
 
 -  UCI Bootcamp Slack Study Group:  https://ucivirtfsfpt0-bgx3057.slack.com/archives/C056LT7DUUF
 -  UCI Web Development office hours:  Instructor Logan Garland and TA David Cox
--  UCI Bootcamp Module 14 MVC: activities 8, 20, 24, 28   
+-  UCI Bootcamp Module 14 MVC: activities 8, 20, 24, 28
+-  Inspiration provided by https://www.bootdey.com/
+-  Inspiration provided by https://codepen.io/
+-  Inspiration provided by https://www.w3schools.com/  
   
 
   ## Test
