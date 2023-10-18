@@ -31,7 +31,8 @@ const filterRankings = async () => {
             
         }
         for (let i = 0; i < 10; i++) {
-            let newRow = $("<tr>");
+            let newRow = $("<tr>").attr("onclick", "window.location.href='profile/" + allUsers[i].id + "';");
+
             let rankCell = $("<td>");
 
 
@@ -104,7 +105,7 @@ const displayResults =  (matchingUsers) => {
     }
 
     matchingUsers.forEach((user) => {
-        let newRow = $("<tr>");
+        let newRow = $("<tr>").attr("onclick", "window.location.href='profile/" + user.id + "';");
 
         let rankCell = $("<td>");
 

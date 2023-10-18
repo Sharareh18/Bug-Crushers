@@ -13,25 +13,29 @@ UserConnection.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: "user",
+                model: "User",
                 key: "id"
-            }
+            },
         },
         user_id_2: { //represents user_id_1's connection to user_id_2
             type: DataTypes.INTEGER,
             allowNull: false,
-        }
-    },
-    {
+            references: {
+                model: "User",
+                key: "id"
+            },
+        },
         status: {
             type: DataTypes.ENUM("pending", "accepted"),
             defaultValue: "pending"
-        },
+        }
+    },
+    {
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        model_name: "user_connection"
+        model_name: "UserConnection"
     }
 )
 module.exports = UserConnection;

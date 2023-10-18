@@ -1,6 +1,5 @@
 const { DataTypes, Model, TEXT } = require("sequelize");
 const sequelize = require("../config/connection");
-const { text } = require("express");
 class UserProfile extends Model {}
 UserProfile.init(
     {
@@ -14,14 +13,14 @@ UserProfile.init(
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                len: [50]
+                len: [1, 50]
             }
         },
         bio: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: true,
             validate: {
-                len: [255]
+                len: [0, 255]
             }
         },
         profile_picture: { //this is a URL
@@ -48,7 +47,7 @@ UserProfile.init(
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        model_name: "user_profile"
+        model_name: "UserProfile"
     }
 )
 module.exports = UserProfile;
