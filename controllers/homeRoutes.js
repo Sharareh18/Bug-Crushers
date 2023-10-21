@@ -131,11 +131,8 @@ router.get("/profile/:userid", async (req, res) => {
   }
 });
 
-  
 
-
-
-
+//route to update UserProfile, update with is logged in
 router.put("/profile/:userid", async (req, res) => {
   const userid = req.params.userid;
   //first need to update the 

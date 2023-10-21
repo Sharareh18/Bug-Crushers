@@ -1,5 +1,54 @@
 const router = require('express').Router(); // imports the Express.js router module
+const bcrypt = require('bcrypt');
 const { User } = require('../../models'); // imports the User model for working with user data
+
+
+// POST route for user registration
+router.post('/signup', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+    //destructuring with variable names on left that match property names of object on right
+
+    // Validate input on the server side
+    const errors = [];
+    if (!username) {
+      errors.push('Username is required.');
+      console.log("1");
+    }
+    if (!email) {
+      errors.push('Email is required.');
+      console.log("2");
+    }
+    if (!password) {
+      errors.push('Password is required.');
+      console.log("3");
+    }
+
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      console.log("4");
+      errors.push('Email is already registered');
+      //return res.render('signup', { errors: ['Email is already registered.'], username });
+    }
+
+    if (errors.length > 0) {
+      //return res.render('signup', { errors, username, email });
+      console.log("FAILED USER CREATION");
+    }
+    else {
+      let newUser = req.body;
+      newUser = await User.create(newUser);
+      console.log(newUser);
+      //render userProfile page
+    }
+    res.redirect('/');
+
+  } 
+  catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 // route for user login
 router.post('/login', async (req, res) => {
@@ -14,9 +63,10 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return; // exits function
     }
-
+    console.log(userData.password)
     // checks if the provided password matches the stored password for the user
     const validPassword = await userData.checkPassword(req.body.password);
+    //returning false even when correct
 
     // if the password is not valid
     if (!validPassword) {
@@ -25,6 +75,8 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return; // exits function
     }
+
+    console.log("CORRECT")
 
     // saves user information in a session to indicate the user is now logged in
     req.session.save(() => {
