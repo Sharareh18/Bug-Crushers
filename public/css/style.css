@@ -79,6 +79,11 @@ margin-top: 20px;
 font-size: 18px;
 }
 
+.container-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 .login-row {
   display: flex;
