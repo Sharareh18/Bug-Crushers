@@ -1,6 +1,5 @@
 const router = require('express').Router(); // imports the Express.js router module
-const bcrypt = require('bcrypt');
-const { User } = require('../../models'); // imports the User model for working with user data
+const { User, UserProfile } = require('../../models'); // imports the User model for working with user data
 
 
 // POST route for user registration
@@ -38,11 +37,15 @@ router.post('/signup', async (req, res) => {
     else {
       let newUser = req.body;
       newUser = await User.create(newUser);
-      console.log(newUser);
-      //render userProfile page
+      let newProfile = await UserProfile.create({
+        full_name: "",
+        bio: "", 
+        profile_picture: "", 
+        step_count: 0,
+        user_background_color: "orangered",
+      });
+      await newUser.setUserProfile(newProfile);
     }
-    res.redirect('/');
-
   } 
   catch (error) {
     console.error(error);
@@ -66,6 +69,7 @@ router.post('/login', async (req, res) => {
     console.log(userData.password)
     // checks if the provided password matches the stored password for the user
     const validPassword = await userData.checkPassword(req.body.password);
+    console.log(validPassword);
     //returning false even when correct
 
     // if the password is not valid
@@ -76,18 +80,20 @@ router.post('/login', async (req, res) => {
       return; // exits function
     }
 
-    console.log("CORRECT")
+    console.log("CORRECT");
 
     // saves user information in a session to indicate the user is now logged in
-    req.session.save(() => {
+    await req.session.save(() => {
       req.session.user_id = userData.id; // stores the user's ID in the session
       req.session.logged_in = true; // sets the 'logged_in' property to true
+      console.log(req.session.logged_in);
       
       // responds with the user's data and a success message
-      res.json({ user: userData, message: 'You are now logged in!' });
+      res.json({ user: { id: userData.id, email: userData.email }, message: 'You are now logged in!' });
     });
 
   } catch (err) {
+    console.log(err);
     res.status(400).json(err); // responds with status code 400 (Bad Request) & an error if one occurs
   }
 });

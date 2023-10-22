@@ -241,8 +241,8 @@ footer {
       padding-top: 10px;
     }
     #bug {
-      width: 55px;
-      height: 55px;
+      width: 57px;
+      height: 57px;
       margin-left: 10px;
     }
     .ladder-search {
@@ -386,6 +386,10 @@ tbody tr td:nth-child(2) {
 
   /*beginning of userProfile*/
 
+#username {
+  
+}
+
   #userProfile {
     margin-top: 0px;
     display: flex;
@@ -396,6 +400,7 @@ tbody tr td:nth-child(2) {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
   
@@ -404,7 +409,48 @@ tbody tr td:nth-child(2) {
     height: 300px;
     border: 10px solid black;
     border-radius: 3%;
+  }
+
+  #colorBoard {
+    height: 300px;
+    width: 80px;
+    border: 5px solid black;
+  }
+
+  #colorOne {
+    border: 2px solid black;
+    height: 57px;
+    width: 100%;
     background-color: orangered;
+    cursor: pointer;
+  }
+  #colorTwo {
+    border: 2px solid black;
+    height: 57px;
+    width: 100%;
+    background-color: yellow;
+    cursor: pointer;
+  }
+  #colorThree {
+    border: 2px solid black;
+    height: 57px;
+    width: 100%;
+    background-color: green;
+    cursor: pointer;
+  }
+  #colorFour {
+    border: 2px solid black;
+    height: 57px;
+    width: 100%;
+    background-color: blue;
+    cursor: pointer;
+  }
+  #colorFive {
+    border: 2px solid black;
+    height: 57px;
+    width: 100%;
+    background-color: purple;
+    cursor: pointer;
   }
   
   #profilePicture {
