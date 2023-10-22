@@ -1,0 +1,62 @@
+
+<div id = "userProfile">
+    <div id = "profilePicAndFriendsContainer">
+        <div id = id = "profilePicAndBackground">
+            <img id = "bannerWings" src = "/images/bannerWings.png" style = "background-color: {{userBackgroundColor}};">
+            <img id = "profilePicture" src = "{{profilePicture}}">
+        </div>
+        {{#if enableLoggedInFeatures}}
+            <div id = "colorBoard">
+                <button id = "colorOne"></button>
+                <button id = "colorTwo"></button>
+                <button id = "colorThree"></button>
+                <button id = "colorFour"></button>
+                <button id = "colorFive"></button>
+            </div>
+        {{/if}}
+        <div id = "friendsSection">
+            <div id = "friendsHeader">USERNAME: {{username}}</div>
+            <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
+        </div>
+        <div>
+            <button id = "returnButton" >
+                <img id = "returnArrow" src = "/images/returnArrow.png">
+            </button>
+        </div>
+    </div>
+    <div class = "linebreak"></div>
+    <form id = "profileDetails" class="form new-profile-form">
+            <div id = "userFullNameContainer">
+                <div id = "fullName">
+                    <label id = "name">Name:</label>
+                    <div class = "linebreak"></div>
+                    <div id = "maxLength">Max Length: 50 Characaters</div>
+                </div>
+                <input maxlength="50" class="form-input full_name" type="text" id="name" name="name" value = "{{fullName}}">
+            </div>
+            <div id = "userBioContainer" class="form-group">
+                <div id = "userBio">
+                    <label id = "bio">Bio:</label>
+                    <div class = "linebreak"></div>
+                    <div id = "maxLength">Max Length: 255 Characaters</div>
+                </div>
+                <input maxlength="255" class="form-input bio" type="text" id="name" name="name" value = "{{bio}}">
+            </div>
+            <div id = "userStepCountContainer" class="form-group">
+                <div id = "userSteps">
+                    <label id = "stepCount">Step Count:</label>
+                </div>
+                <input class="form-input step_count" type="text" id="step-count" name="step-count" value={{stepCount}}>
+            </div>
+            <div id = "userProfilePicContainer" class="form-group">
+                <label for="image">Profile Image (enter as URL):</label>
+                <input class="form-input profile_picture" type="Url" id="image" name="image" value="{{profilePicture}}" pattern="https://.*" size="10"/>
+            </div>
+            {{#if enableLoggedInFeatures}}
+                <div class="form-group">
+                    <button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>
+                </div>
+            {{/if}}
+    </form>
+</div>
+
