@@ -116,7 +116,7 @@ router.get("/profile/:userid", async (req, res) => {
     });
     const profile = dbProfileData.map((profile) => profile.get({ plain: true}));
     console.log(profile);
-    let username = profile[0].username;
+    let username;
     let fullName = "";
     let bio = "";
     let stepCount = 0;
@@ -126,6 +126,7 @@ router.get("/profile/:userid", async (req, res) => {
 
     if (profile[0].UserProfile != null) {
       console.log("not null!");
+      username = profile[0].username;;
       fullName = profile[0].UserProfile.full_name;
       bio = profile[0].UserProfile.bio;
       stepCount = profile[0].UserProfile.step_count;

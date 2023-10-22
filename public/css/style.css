@@ -216,7 +216,9 @@ footer {
     
   /* Ladder Navigation */
     #leaderboard {
-        padding:50px;
+        padding-left: 50px;
+        padding-right: 50px;
+        margin-top: -40px;
     }
     .ladder-nav {
         display:flex;
@@ -386,22 +388,25 @@ tbody tr td:nth-child(2) {
 
   /*beginning of userProfile*/
 
-#username {
-  
-}
-
   #userProfile {
-    margin-top: 0px;
+    margin-top: -110px;
+    margin-bottom: -110px;
     display: flex;
     justify-content: center;
   }
   
   #profilePicAndFriendsContainer {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+  }
+
+  #profilePicAndBackground {
+    width: 500px;
+    height: 300px;
+    margin-right: 100px;
   }
   
   #bannerWings {
@@ -456,9 +461,9 @@ tbody tr td:nth-child(2) {
   #profilePicture {
     height: 115.5px;
     width: 115.5px;
-    position: absolute;
-    left: 240px;
-    top: 201.5px;
+    position: relative;
+    left: 190px;
+    top: -152px;
     border-radius: 95%;
   }
   

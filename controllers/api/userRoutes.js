@@ -5,6 +5,7 @@ const { User, UserProfile } = require('../../models'); // imports the User model
 // POST route for user registration
 router.post('/signup', async (req, res) => {
   try {
+    console.log("MADE IT");
     const { username, email, password } = req.body;
     //destructuring with variable names on left that match property names of object on right
 
@@ -45,6 +46,7 @@ router.post('/signup', async (req, res) => {
         user_background_color: "orangered",
       });
       await newUser.setUserProfile(newProfile);
+      res.json({user: newUser})
     }
   } 
   catch (error) {

@@ -14,8 +14,10 @@ const loginFormHandler = async (event) => {
 
       console.log('Response from server:', data);
 
+      console.log('Response from server:', data);
+
       if (data.user) {
-        console.log("Login successful. Redirecting...");
+        alert('Successful login.'); //THIS IS WORKING
         window.location.href = "/";
       } else {
         console.error('Failed to log in:', data.message);
@@ -41,8 +43,12 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
+    
+    const data = await response.json();
+    
     if (response.ok) {
-      document.location.replace('/');
+      alert(`Congrats, ${data.user.username} on signing up; keep up the good stepping!`);
+      console.log("and here");
     } else {
       alert('Failed to sign up.');
     }
