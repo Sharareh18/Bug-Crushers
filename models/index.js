@@ -39,9 +39,6 @@ UserConnection.belongsTo(User, {
 //this means that the User Connection table, which details which users are connected to each other
 //can only be accessed by the first user
 
-
-console.log("User Associations:", Object.keys(User.associations));
-
 module.exports ={
     User,
     UserProfile,

@@ -11,9 +11,9 @@ UserProfile.init(
         },
         full_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
-                len: [1, 50]
+                len: [0, 50]
             }
         },
         bio: {
@@ -31,6 +31,11 @@ UserProfile.init(
             type: DataTypes.INTEGER,
             allowNull: true,
         },
+        user_background_color: {
+          type: DataTypes.STRING,
+          false: true,
+          defaultValue: "orangered"
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -40,7 +45,7 @@ UserProfile.init(
             onDelete: "CASCADE",
             //put the foreign key as cascade, so that the entire entry is deleted when the parent table entry is deleted
             //this allows for the cascade deletion
-        },
+        }
     },
     {
         sequelize,

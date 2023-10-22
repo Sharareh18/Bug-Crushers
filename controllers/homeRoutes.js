@@ -4,12 +4,13 @@ const { User, UserProfile, UserConnection } = require('../models'); // imports t
 const withAuth = require('../utils/auth'); // imports the 'withAuth' middleware for authentication
 
 // prevents non-logged-in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+// if a user is not logged in, the withAuth middleware immediately redirects the user to the login page
+router.get('/', withAuth, async (req, res) => {/*
   try {
     // retrieves the user data from the database, excluding the 'password' field
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']], // orders the results by the 'name' field in ascending order
+      //order: [['name', 'ASC']], // orders the results by the 'name' field in ascending order
     });
 
     // maps user data to plain JavaScript objects for easier rendering
@@ -22,15 +23,18 @@ router.get('/', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err); // handles errors & sends a status code 500 (Internal Server Error)
-  }
+  }*/
 });
+
+
 router.get('/login', (req, res) => {
+  console.log("IM HERE!");
+  console.log(req.session.logged_in);
   // if a user session exists (i.e., the user is already logged in), redirects to the homepage
   if (req.session.logged_in) {
-    res.redirect('/'); // redirects to the homepage
-    return;
+    console.log("ABOUT TO REDIRECT!!!")
+    res.redirect('/profile/' + req.session.user_id); // redirects to the leaders page
   }
-
   res.render('login'); // renders the 'login' template for users who are not logged in
 });
 
@@ -51,7 +55,6 @@ router.get("/leaders", async (req, res) => {
       })
       
       const allUsers = dbAllUsersData.map((User) => User.get({ plain: true })); //all Users is sorted by 
-      console.log(allUsers);
       for (let i = 0; i < allUsers.length; i++)
       {
         allUsers[i].rank = i+1;
@@ -76,7 +79,6 @@ router.get("/leaders", async (req, res) => {
       })
       
       const leaders = dbLeadersData.map((leader) => leader.get({ plain: true }));
-      console.log(leaders);
       leaders[0].numberOne = true;
       leaders[1].numberTwo = true;
       leaders[2].numberThree = true;
@@ -105,7 +107,7 @@ router.get("/profile/:userid", async (req, res) => {
       },
       {
         model: UserProfile,
-        attributes: ["full_name", "bio", "profile_picture", "step_count"]
+        attributes: ["full_name", "bio", "profile_picture", "user_background_color", "step_count"]
       }
     ],
       where: {
@@ -113,17 +115,42 @@ router.get("/profile/:userid", async (req, res) => {
       }
     });
     const profile = dbProfileData.map((profile) => profile.get({ plain: true}));
-    let fullName = profile[0].UserProfile.full_name;
-    let bio = profile[0].UserProfile.bio;
-    let stepCount = profile[0].UserProfile.step_count;
-    let profilePicture = profile[0].UserProfile.profile_picture;
+    console.log(profile);
+    let username = profile[0].username;
+    let fullName = "";
+    let bio = "";
+    let stepCount = 0;
+    let profilePicture = "";
+    let userBackgroundColor = "orangered";
     let friendCount = 0;
-    let allFriends = profile[0].userConnections;
-    allFriends.forEach((profile) => {
-      friendCount++;
-    })
+
+    if (profile[0].UserProfile != null) {
+      console.log("not null!");
+      fullName = profile[0].UserProfile.full_name;
+      bio = profile[0].UserProfile.bio;
+      stepCount = profile[0].UserProfile.step_count;
+      profilePicture = profile[0].UserProfile.profile_picture;
+      userBackgroundColor = profile[0].UserProfile.user_background_color;
+      console.log(userBackgroundColor);
+      allFriends = profile[0].userConnections;
+      allFriends.forEach((profile) => {
+        friendCount++;
+      })
+    }
+
+    console.log("null!")
+
+    let enableLoggedInFeatures;
+
+    if (req.session.user_id == userid) {
+      enableLoggedInFeatures = true;
+    }
+    else {
+      enableLoggedInFeatures = false;
+    }
+    
     //.get( { plain: true}) turns the sequelize instance (instance of the model) into the normal javascript object 
-    res.render('userProfile', {fullName, bio, stepCount, profilePicture, friendCount});
+    res.render('userProfile', {username, fullName, bio, stepCount, profilePicture, friendCount, userBackgroundColor, enableLoggedInFeatures});
   }
   catch (err) {
     console.log(err)
@@ -131,11 +158,8 @@ router.get("/profile/:userid", async (req, res) => {
   }
 });
 
-  
 
-
-
-
+//route to update UserProfile, update with is logged in
 router.put("/profile/:userid", async (req, res) => {
   const userid = req.params.userid;
   //first need to update the 
@@ -145,6 +169,7 @@ router.put("/profile/:userid", async (req, res) => {
         full_name: req.body.full_name,
         bio: req.body.bio,
         profile_picture: req.body.profile_picture,
+        user_background_color: req.body.user_background_color,
         step_count: req.body.step_count
       },
       {

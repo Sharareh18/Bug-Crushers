@@ -2,10 +2,20 @@
 <div id = "userProfile">
     <div id = "profilePicAndFriendsContainer">
         <div id = id = "profilePicAndBackground">
-            <img id = "bannerWings" src = "/images/bannerWings.png">
+            <img id = "bannerWings" src = "/images/bannerWings.png" style = "background-color: {{userBackgroundColor}};">
             <img id = "profilePicture" src = "{{profilePicture}}">
         </div>
+        {{#if enableLoggedInFeatures}}
+            <div id = "colorBoard">
+                <button id = "colorOne"></button>
+                <button id = "colorTwo"></button>
+                <button id = "colorThree"></button>
+                <button id = "colorFour"></button>
+                <button id = "colorFive"></button>
+            </div>
+        {{/if}}
         <div id = "friendsSection">
+            <div id = "friendsHeader">USERNAME: {{username}}</div>
             <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
         </div>
         <div>
@@ -40,11 +50,13 @@
             </div>
             <div id = "userProfilePicContainer" class="form-group">
                 <label for="image">Profile Image (enter as URL):</label>
-                <input class="form-input profile_picture" type="Url" id="image" name="image" placeholder="{{profilePicture}}" pattern="https://.*" size="10"required/>
+                <input class="form-input profile_picture" type="Url" id="image" name="image" value="{{profilePicture}}" pattern="https://.*" size="10"/>
             </div>
-            <div class="form-group">
-                <button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>
-            </div>
+            {{#if enableLoggedInFeatures}}
+                <div class="form-group">
+                    <button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>
+                </div>
+            {{/if}}
     </form>
 </div>
 
