@@ -26,9 +26,10 @@ A Step Challenge Application for users
   There is no installation required as the app is deployed on Heroku.  You can view it by navigating to the provided URL.  You can also, clone the repo of this app and run it on your local device.
 
   ## Usage
+  Link: [View Website](https://bug-crusher-228274a003c3.herokuapp.com/login)
 
-Demo Video:
-Screenshots:
+  Screenshots:<img width="1437" alt="Screenshot 2023-10-22 at 7 53 26 PM" src="https://github.com/Sharareh18/Bug-Crushers/assets/137013883/23163fe1-1339-4f5c-8ca4-b4b4e1b3fb0c">
+
 
   ## License
   This project is covered under the following license: MIT
