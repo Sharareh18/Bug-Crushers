@@ -3,34 +3,20 @@ const router = require('express').Router(); // imports the router from the Expre
 const { User, UserProfile, UserConnection } = require('../models'); // imports the User modelk for working witu user data
 const withAuth = require('../utils/auth'); // imports the 'withAuth' middleware for authentication
 
-// prevents non-logged-in users from viewing the homepage
-// if a user is not logged in, the withAuth middleware immediately redirects the user to the login page
-router.get('/', withAuth, async (req, res) => {/*
+// use login page as the homepage and automatically direct users there. 
+router.get('/', async (req, res) => {
   try {
-    // retrieves the user data from the database, excluding the 'password' field
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      //order: [['name', 'ASC']], // orders the results by the 'name' field in ascending order
-    });
+   res.redirect('/login');
 
-    // maps user data to plain JavaScript objects for easier rendering
-    const users = userData.map((project) => project.get({ plain: true }));
-
-    // renders the 'homepage' template, passing user data and the 'logged_in' flag
-    res.render('homepage', {
-      users,
-      logged_in: req.session.logged_in, // passes the 'logged_in' flag to the template
-    });
   } catch (err) {
     res.status(500).json(err); // handles errors & sends a status code 500 (Internal Server Error)
-  }*/
+  }
 });
 
 
 router.get('/login', (req, res) => {
   console.log("IM HERE!");
   console.log(req.session.logged_in);
-  // if a user session exists (i.e., the user is already logged in), redirects to the homepage
   if (req.session.logged_in) {
     console.log("ABOUT TO REDIRECT!!!")
     res.redirect('/profile/' + req.session.user_id); // redirects to the leaders page
@@ -188,28 +174,6 @@ router.put("/profile/:userid", async (req, res) => {
 })
 
 
-
-
-// get route to retrieve the User Profile while making sure they're logged in
-
-// router.get('/profile', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session id
-//     const dbProfileData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: UserProfile }],
-//     });
-
-//     const user = dbProfileData.get({ plain: true });
-
-//     res.render('profile', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 
 

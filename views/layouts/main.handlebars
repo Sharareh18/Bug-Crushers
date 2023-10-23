@@ -19,10 +19,12 @@
         <h1>...take some steps</h1>
     </div>
     <div class="navbar justify-content-end" id="menuitems">
-        <a class="nav-link" aria-current="page" href="http://localhost:3001/login">Register</a>
-        <br><br>
-        <a class="nav-link" href="http://localhost:3001/login">Login</a>
-        <br><br>
+        <a class="nav-link" id="register" aria-current="page" href="http://localhost:3001/login">Register</a>
+        <br>
+        <a class="nav-link" id="login" href="http://localhost:3001/login">Login</a>
+        <br>
+        <a class="nav-link" id="logout" href="http://localhost:3001/logout">Logout</a>
+        <br>
         <a class="nav-link" href="http://localhost:3001/leaders">Leaders</a>
     </div>
   </nav>
@@ -32,7 +34,7 @@
   <div>
     {{{body}}}
   </div>
-</body>
+
 <footer class="text-left text-lg-start">
   <div class="container p-4" id="footer-row">
     <div class="row">
@@ -83,4 +85,8 @@
   <script src="/js/leaders.js"></script>
   <script src="/js/userProfile.js"></script>
   <script src="/js/login.js"></script>
+  <script src="/js/logout.js"></script>
+
+
+</body>
 </html>

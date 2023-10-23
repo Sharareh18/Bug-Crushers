@@ -106,7 +106,7 @@ router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     // if logged in, destroys the session to log the user out
     req.session.destroy(() => {
-      res.status(204).end(); // responds with status code 204 (No Content)
+      res.status("Successfully logged out.").end(); 
     });
   } else {
     // if not logged in, respond with status code 404 (Not Found)
