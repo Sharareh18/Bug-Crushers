@@ -22,8 +22,10 @@
         <a class="nav-link" id="register" aria-current="page" href="http://localhost:3001/login">Register</a>
         <br>
         <a class="nav-link" id="login" href="http://localhost:3001/login">Login</a>
+        {{#if logoutButtonVisible}}
         <br>
         <a class="nav-link" id="logout" href="http://localhost:3001/logout">Logout</a>
+        {{/if}}
         <br>
         <a class="nav-link" href="http://localhost:3001/leaders">Leaders</a>
     </div>
@@ -86,7 +88,5 @@
   <script src="/js/userProfile.js"></script>
   <script src="/js/login.js"></script>
   <script src="/js/logout.js"></script>
-
-
 </body>
 </html>

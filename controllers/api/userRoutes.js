@@ -5,7 +5,6 @@ const { User, UserProfile } = require('../../models'); // imports the User model
 // POST route for user registration
 router.post('/signup', async (req, res) => {
   try {
-    console.log("MADE IT");
     const { username, email, password } = req.body;
     //destructuring with variable names on left that match property names of object on right
 
@@ -58,6 +57,7 @@ router.post('/signup', async (req, res) => {
 // route for user login
 router.post('/login', async (req, res) => {
   try {
+
     // attempts to find a user in the database with the provided email
     const userData = await User.findOne({ where: { email: req.body.email } });
 
@@ -101,16 +101,28 @@ router.post('/login', async (req, res) => {
 });
 
 // route for user logout
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   // checks if the user is currently logged in (as indicated by 'logged_in' property in the session)
   if (req.session.logged_in) {
+    console.log("AT ROUTE");
     // if logged in, destroys the session to log the user out
-    req.session.destroy(() => {
-      res.status("Successfully logged out.").end(); 
+    req.session.destroy((err) => {
+      if (err) {
+        console.log("shouldn't be here");
+        console.log (err);
+        res.status(500).json({error: "error occured"})
+      }
+      else {
+        console.log("session destroyed");
+        //res.status("Successfully logged out.").end(); 
+        res.json({message: "Successful logout!"})
+        console.log("made it here?")
+      }
     });
-  } else {
-    // if not logged in, respond with status code 404 (Not Found)
-    res.status(404).end();
+  } else { 
+    console.log("really shouldn't be here");
+    //if the logout button is visible when the user is not logged in, that is an error in server
+    res.status(500).end();
   }
 });
 

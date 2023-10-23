@@ -15,13 +15,19 @@ router.get('/', async (req, res) => {
 
 
 router.get('/login', (req, res) => {
-  console.log("IM HERE!");
-  console.log(req.session.logged_in);
-  if (req.session.logged_in) {
-    console.log("ABOUT TO REDIRECT!!!")
+  //logout button featured in header determined here
+  let logoutButtonVisible;
+  if (req.session.logged_in == true) {
+    logoutButtonVisible = true;
+  }
+  else {
+    logoutButtonVisible = false;
+  }
+  //
+  if (req.session.logged_in) { //redirects to profile page if user is logged in
     res.redirect('/profile/' + req.session.user_id); // redirects to the leaders page
   }
-  res.render('login'); // renders the 'login' template for users who are not logged in
+  res.render('login', {logoutButtonVisible}); // renders the 'login' template for users who are not logged in
 });
 
 
@@ -30,6 +36,18 @@ router.get("/leaders", async (req, res) => {
 
   const showAll = req.query.showAll;
 
+  //logout button featured in header determined here
+  let logoutButtonVisible;
+
+  if (req.session.logged_in == true) {
+    logoutButtonVisible = true;
+  }
+  else {
+    logoutButtonVisible = false;
+  }
+
+  //first part of this statement is not for rendering a page
+  //this route is meant for providing data for leaderboard page to function
   if (showAll) {
     try {
       const dbAllUsersData = await User.findAll({
@@ -52,7 +70,7 @@ router.get("/leaders", async (req, res) => {
       res.status(500).json(err);
     }
   }
-  else {
+  else { //this part is meant for rendering leaderboard page
     try {
       const dbLeadersData = await User.findAll({
         include: [{
@@ -68,7 +86,7 @@ router.get("/leaders", async (req, res) => {
       leaders[0].numberOne = true;
       leaders[1].numberTwo = true;
       leaders[2].numberThree = true;
-      res.render("leaders", {leaders});
+      res.render("leaders", {logoutButtonVisible, leaders});
       }
     catch (err) {
       console.log(err)
@@ -100,6 +118,17 @@ router.get("/profile/:userid", async (req, res) => {
         id: userid,
       }
     });
+
+    //logout button featured in header determined here
+    let logoutButtonVisible;
+    if (req.session.logged_in == true) {
+      logoutButtonVisible = true;
+    }
+    else {
+      logoutButtonVisible = false;
+    }
+
+
     const profile = dbProfileData.map((profile) => profile.get({ plain: true}));
     console.log(profile);
     let username;
@@ -125,8 +154,6 @@ router.get("/profile/:userid", async (req, res) => {
       })
     }
 
-    console.log("null!")
-
     let enableLoggedInFeatures;
 
     if (req.session.user_id == userid) {
@@ -137,7 +164,7 @@ router.get("/profile/:userid", async (req, res) => {
     }
     
     //.get( { plain: true}) turns the sequelize instance (instance of the model) into the normal javascript object 
-    res.render('userProfile', {username, fullName, bio, stepCount, profilePicture, friendCount, userBackgroundColor, enableLoggedInFeatures});
+    res.render('userProfile', {logoutButtonVisible, username, fullName, bio, stepCount, profilePicture, friendCount, userBackgroundColor, enableLoggedInFeatures});
   }
   catch (err) {
     console.log(err)
