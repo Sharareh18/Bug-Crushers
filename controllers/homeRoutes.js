@@ -26,6 +26,7 @@ router.get('/login', (req, res) => {
   //
   if (req.session.logged_in) { //redirects to profile page if user is logged in
     res.redirect('/profile/' + req.session.user_id); // redirects to the leaders page
+    return;
   }
   res.render('login', {logoutButtonVisible}); // renders the 'login' template for users who are not logged in
 });
