@@ -2,24 +2,34 @@
 <div id = "userProfile">
     <div id = "profilePicAndFriendsContainer">
         <div id = "profilePicAndBackground">
+            <div id = "usernameHeader">USERNAME: {{username}}</div>
+            <div class = "linebreak"></div>
             <img id = "bannerWings" src = "/images/bannerWings.png" style = "background-color: {{userBackgroundColor}};">
             <img id = "profilePicture" src = "{{profilePicture}}">
+            {{#if enableLoggedInFeatures}}
+                <div id = "colorBoard">
+                    <button id = "colorOne"></button>
+                    <button id = "colorTwo"></button>
+                    <button id = "colorThree"></button>
+                    <button id = "colorFour"></button>
+                    <button id = "colorFive"></button>
+                </div>
+            {{/if}}
         </div>
-        {{#if enableLoggedInFeatures}}
-            <div id = "colorBoard">
-                <button id = "colorOne"></button>
-                <button id = "colorTwo"></button>
-                <button id = "colorThree"></button>
-                <button id = "colorFour"></button>
-                <button id = "colorFive"></button>
-            </div>
-        {{/if}}
         <div id = "friendsSection">
-            <div id = "friendsHeader">USERNAME: {{username}}</div>
             <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
+            <div class = "linebreak"></div>
+            {{#if addFriendButtonVisible}}
+                <div>
+                    <div id = "addFriend">Add Friend</div>
+                    <button id = "addFriendButton">
+                        <img id = "addFriendImage" src = "/images/person-add-outline.svg">
+                    </button>
+                </div>
+            {{/if}}
         </div>
         <div>
-            <button id = "returnButton" >
+            <button id = "returnButton">
                 <img id = "returnArrow" src = "/images/returnArrow.png">
             </button>
         </div>

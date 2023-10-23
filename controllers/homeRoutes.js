@@ -99,6 +99,25 @@ router.get("/leaders", async (req, res) => {
 //retrieves User Profile for selected User in Leaderboard page
 router.get("/profile/:userid", async (req, res) => {
   const userid = req.params.userid;
+
+  //if this is the logged in user's page, eliminate add friend button
+  let addFriendButtonVisible;
+  if(req.session.user_id == userid) {
+    addFriendButtonVisible = false;
+  }
+  else {
+    addFriendButtonVisible = true;
+  }
+
+  //logout button featured in header determined here
+  let logoutButtonVisible;
+  if (req.session.logged_in == true) {
+    logoutButtonVisible = true;
+  }
+  else {
+    logoutButtonVisible = false;
+  }
+
   try {
     const dbProfileData = await User.findAll({
     //need to use findAll here so that the return results is in an array,
@@ -119,18 +138,7 @@ router.get("/profile/:userid", async (req, res) => {
       }
     });
 
-    //logout button featured in header determined here
-    let logoutButtonVisible;
-    if (req.session.logged_in == true) {
-      logoutButtonVisible = true;
-    }
-    else {
-      logoutButtonVisible = false;
-    }
-
-
     const profile = dbProfileData.map((profile) => profile.get({ plain: true}));
-    console.log(profile);
     let username;
     let fullName = "";
     let bio = "";
@@ -164,7 +172,7 @@ router.get("/profile/:userid", async (req, res) => {
     }
     
     //.get( { plain: true}) turns the sequelize instance (instance of the model) into the normal javascript object 
-    res.render('userProfile', {logoutButtonVisible, username, fullName, bio, stepCount, profilePicture, friendCount, userBackgroundColor, enableLoggedInFeatures});
+    res.render('userProfile', {addFriendButtonVisible, logoutButtonVisible, username, fullName, bio, stepCount, profilePicture, friendCount, userBackgroundColor, enableLoggedInFeatures});
   }
   catch (err) {
     console.log(err)

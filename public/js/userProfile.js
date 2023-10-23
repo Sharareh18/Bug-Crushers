@@ -12,6 +12,7 @@ const colorTwo = $("#colorTwo");
 const colorThree = $("#colorThree");
 const colorFour = $("#colorFour");
 const colorFive = $("#colorFive");
+const addFriendButton = $("#addFriendButton")
 
 colorBoard.on("click", (event) => {
     let hoveredColor = $(event.target);
@@ -74,6 +75,11 @@ updateButton.on("click", () => {
 returnButton.on("click", () => {
     window.location.pathname = '/leaders';
 });
+
+addFriendButton.on("click", (event) => {
+    event.preventDefault();
+    const response = fetch()
+})
   
   
   

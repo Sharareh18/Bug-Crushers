@@ -126,4 +126,9 @@ router.get('/logout', (req, res) => {
   }
 });
 
+router.post("/addFriend", async (req,res) => {
+  
+}) 
+
+
 module.exports = router; // exports the router with defined routes for use in other parts of the app
