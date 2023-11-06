@@ -2,23 +2,26 @@
   <section id="leaderboard">
       <nav class="ladder-nav">
           <div class="ladder-title">
-            <h1>TOP TEN LEADERBOARD</h1>
-            <ion-icon name="bug" id = "bug"></ion-icon>
+            <div id = "countdown">
+                <h1 id = "topTenHeader">TOP TEN LEADERBOARD</h1>
+                <ion-icon name="bug" id = "bug"></ion-icon>
+                <div class = "linebreak"></div>
+                <div id = "remainingTime">Challenge Time Remaining</div>
+                <div class = "linebreak"></div>
+                <div id = "countDownClock"></div>
+            </div> 
           </div>
+          <!--<div class = "linebreak"></div>-->
           <div class="ladder-search">
-              <input type="text" id="search-leaderboard" class="live-search-box" placeholder="Search for a User by Username" />
+              <input id="search-leaderboard" type="text"  class="live-search-box" placeholder="Search for a User by Username" />
           </div>
       </nav>
-      <table id="rankings" class="leaderboard-results" width="100%">
+      <table id="rankings" class="leaderboard-results">
           <thead>
               <tr>
                   <th>Rank</th>
                   <th>Name</th>
-                  <th>Step Count</th> <!--
-                  <th>P1</th>
-                  <th>P2</th>
-                  <th>Games Played</th>
-                  <th>PTS</th> -->
+                  <th>Step Count</th> 
               </tr>
           </thead>
           <tbody id = "tableBody">

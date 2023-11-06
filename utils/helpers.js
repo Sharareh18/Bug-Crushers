@@ -11,11 +11,30 @@ module.exports = {
       }
     },
     placeFormatter: (index) => {
+      let lastTwoDigits = index % 100;
+    
+      if ((index >= 11 && index <= 13) || (lastTwoDigits >= 11 && lastTwoDigits <= 13)) {
+        return index + "th";
+      }
+    
+      let lastDigit = index % 10;
+    
+      switch (lastDigit) {
+        case 1:
+          return index + "st";
+        case 2:
+          return index + "nd";
+        case 3:
+          return index + "rd";
+        default:
+          return index + "th";
+      }
+    },    
+    addCommas: (number) => {
+      return number.toLocaleString();
+    },
+    placeFormatterLeaderPage: (index) => {
       index = index + 1;
       return index + "th";
     },
-    addCommas: (number) => {
-      return number.toLocaleString();
-    }
-
   }
