@@ -27,6 +27,7 @@ UserConnection.init(
         },
         status: {
             type: DataTypes.ENUM("pending", "accepted"),
+            allowNull: false,
             defaultValue: "pending"
         }
     },

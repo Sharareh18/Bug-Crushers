@@ -1,6 +1,5 @@
 /* Codepen Specific */
 * {
-
     margin:0;
     padding:0;
     font-family: "Lilita One", cursive; 
@@ -11,7 +10,8 @@
 
   .linebreak {
     height: 2px;
-    flex-grow: 100%;
+    flex-basis: 100%;
+    
   }
 
   input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
@@ -48,14 +48,17 @@ input[type=text2], input[type=email2], input[type=password2] {
   border:1px solid #686EF9;
   margin-top: 10px;
   margin-bottom: 100px;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .logo {
   justify-content: right;
   margin-left: 20px;
   margin-bottom: 0px;
+}
+
+#logo {
+  height: 130px;
+  width: 200px;
 }
 
 .login-title {
@@ -65,18 +68,22 @@ input[type=text2], input[type=email2], input[type=password2] {
   margin-right: 220px;
   margin-left:20px;
   margin-top: 50px;
- color:#f89521;
+  color:#f89521;
 }
 
 .nav-link {
   color: #f89521;
-  margin-right: 50px;
- 
+  margin-right: 20px;
 }
 
 #menuitems {
-margin-top: 20px;
-font-size: 18px;
+font-size: 23px;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+margin-top: auto;
+margin-bottom: auto;
+width: 200px;
 }
 
 .container-wrap {
@@ -84,15 +91,20 @@ font-size: 18px;
   flex-wrap: wrap;
 }
 
+.container-wrap2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap:wrap-reverse;
+}
+
 
 .login-row {
   display: flex;
   flex-wrap: wrap; 
   flex-direction: row-reverse;
-  margin-left: 30px;
-  margin-right: 10px;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .login-card {
@@ -101,7 +113,6 @@ font-size: 18px;
   flex-wrap: wrap;
   margin-left: 10px;
   margin-right: 80px;
-  
 }
 
 .page-title {
@@ -116,8 +127,8 @@ label {
 
 .success-tips {
   width:500px;
-  margin: -10px auto;
-  margin-left: 50px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #5055cb;
   border: 1px solid #d1d1d1;
   border-color: #5055cb;
@@ -129,6 +140,7 @@ label {
 
 .tip {
   font-style: normal!important;
+  font-size: 20px;
   color: #ffffff
 }
 
@@ -163,20 +175,8 @@ footer {
 }
 
 
-/*   
-  .ladder-title {
-    flex:2;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-  } */
-
   /* /end Codepen Specific */
   /* User Profile*/
-  #userProfile {
-    padding:50px;
-    flex:2;
-}
     .profile-nav {
       display:flex;
       flex-wrap:wrap;
@@ -194,11 +194,18 @@ footer {
       font-weight:bold;
       text-transform:uppercase;
     }
-    #userProfile {
+    #userProfile {  
       display:flex;
       flex-wrap:wrap;
-      align-items: center;
+      width: 550px;
+      height: 600px;
+      align-items: flex-start;
     }
+
+    #updateButton {
+      margin-top: 5px;
+    }
+
     #image img {
       width:100px;
       height:100px;
@@ -232,20 +239,39 @@ footer {
     .ladder-title {
       flex:2;
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       align-items: center;
 
     }
+    #countdown {
+      font-size: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    #countDownClock {
+      color: goldenrod;
+      font-size: 40px;
+      font-family: orbitron;
+    }
     h1 {
       font-size: 50px;
-      margin-left: 19px;
       vertical-align: center;
-      padding-top: 10px;
+      padding: 5px;
     }
     #bug {
       width: 57px;
       height: 57px;
       margin-left: 10px;
+      padding-bottom: 5px;
+    }
+    #steps {
+      width: 30px;
+      height: 30px;
+    }
+    #placeImage {
+      height: 45px;
+      width: 45px;
     }
     .ladder-search {
       flex:1;
@@ -277,16 +303,15 @@ footer {
   .leaderboard-results {
     text-align:left;
     border-collapse: collapse;
+    width: 100%;
   }
   .leaderboard-results thead th {
     padding: 25px;
     color:#747474;
     font-size:25px;
     font-weight:bold;
-
- 
-
   }
+
   .ladder-search {
     flex:1;
     padding-right:25px;
@@ -358,29 +383,49 @@ footer {
   color:#747474;
 }
 td div {
-font-size: 25px;
-vertical-align: middle;
-margin-left: 10px;
-}
-td img {
-margin-bottom: -5px;
+  font-size: 25px;
+  vertical-align: middle;
+  margin-left: 10px;
 }
 
-tbody tr td:nth-child(3) {
-font-size: 30px;
+#rankings tr th:nth-child(1) {
+  font-size: 25px;
+  position: relative;
+  left: 5px;
+}
+#rankings tr th:nth-child(2) {
+  text-align: left;
+}
+#rankings tr th:nth-child(3) {
+  text-align: center;
 }
 
-tbody tr td:nth-child(2) {
+
+#rankings tr td:nth-child(1) {
+  font-size: 40px;
+}
+
+#rankings tr td:nth-child(3) {
+  font-size: 30px;
+  text-align: center;
+}
+
+#rankings tr td:nth-child(1) img {
+  margin-bottom: -7px !important;
+}
+
+#rankings tr td:nth-child(3) img {
+  margin-bottom: -5px !important;
+}
+
+
+#rankings tr td:nth-child(2) {
 font-size: 20px;
 }
 
 
-tbody tr td:nth-child(3) {
+#rankings tr td:nth-child(3) {
   font-size: 30px;
-}
-
-tbody tr td:nth-child(2) {
-  font-size: 20px;
 }
 
   /* /end Leaderboard Results */
@@ -389,42 +434,32 @@ tbody tr td:nth-child(2) {
   /*beginning of userProfile*/
 
   #userProfile {
-    margin-top: -110px;
-    margin-bottom: -110px;
     display: flex;
     justify-content: center;
-  }
-  
-  #profilePicAndFriendsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 400px;
   }
 
   #profilePicAndBackground {
     height: 300px;
-    width: 617px;
-    margin-bottom: 90px;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    width: 450px;
+    display: flex;
+    justify-content: center;
   }
   
   #bannerWings {
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 200px;
     border: 10px solid black;
     border-radius: 3%;
+    box-sizing: content-box;
   }
 
   #colorBoard {
-    height: 300px;
-    width: 80px;
+    height: 67px;
+    width: 400px;
     border: 5px solid black;
-    margin-left: -90px;
+    display: flex;
+    margin-top: -80px;
   }
 
   #colorOne {
@@ -438,60 +473,219 @@ tbody tr td:nth-child(2) {
     border: 2px solid black;
     height: 57px;
     width: 100%;
-    background-color: yellow;
+    background-color: #00bfe8;
     cursor: pointer;
   }
   #colorThree {
     border: 2px solid black;
     height: 57px;
     width: 100%;
-    background-color: green;
+    background-color: #f69620;
     cursor: pointer;
   }
   #colorFour {
     border: 2px solid black;
     height: 57px;
     width: 100%;
-    background-color: blue;
+    background-color: #5055ca;
     cursor: pointer;
   }
   #colorFive {
     border: 2px solid black;
     height: 57px;
     width: 100%;
-    background-color: purple;
+    background-color: #545caa;
     cursor: pointer;
   }
   
   #profilePicture {
-    height: 115.5px;
-    width: 115.5px;
+    height: 84.5px;
+    width: 84.7px;
     position: relative;
-    right: 310px;
-    top: 152px;
+    bottom: 109.5px;
     border-radius: 95%;
+    left: -2px;
+  }
+
+  #datePickerContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    font-size: 30px;
+    width: 450px;
+    position: relative;
+    right: 35px;
+    bottom: 20px;
+  }
+
+  .ui-datepicker {
+    background:#232323;
+    color: goldenrod;
+  }
+
+  #datepicker {
+    position: relative;
+    right: 5px;
+    width: 180px;
+  }
+
+  #friendsSectionContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 70px;
   }
   
   #friendsSection {
-    width: 200px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-self: flex-start;
+    border: 5px solid #5055ca;
+    background-color: #1d1d1d;
+    border-radius: 10px;
+    width: 510px;
+  }
+
+  #friendRequestTable {
+    color: white;
+  }
+
+  #friendsHeader {
+    color: goldenrod;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  #friendRequestHeader {
+    font-size: 30px;
+    color: goldenrod;
+    text-align: center;
+  }
+
+  #friendRequestTable {
+    width: 500px;
+    background-color: transparent;
+  }
+
+  .friendProfilePic {
+    margin-right: 10px;
+    font-size: 20px;
+    padding-bottom: 5px;
+    position: relative;
+    left: 5px;
+  }
+
+  .profilePicClass {
+    position: relative;
+    left: 30px;
+  }
+
+  .friendUserName {
+    font-size: 20px;
+  }
+
+  .friendStatus {
+    font-size: 20px;
+    text-align: right;
+    position: relative;
+    right: 27px;
+  }
+
+  .statusCell {
+    margin-right: 20px;
+  }
+
+  .acceptButton {
+    background-color: goldenrod;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  .declineButton {
+    background-color: goldenrod;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  .declineButtonImage {
+    transform: rotate(45deg);
   }
   
   #profileDetails {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 50px;
+    font-size: 20px;
   }
   
-  #usernameContainer, #userFullNameContainer, #userBioContainer, #userStepCountContainer, #userProfilePicContainer {
+  #usernameContainer, #userFullNameContainer, #userBioContainer, #userStepCountContainer, #userProfilePicContainer, #dailyStepsContainer, #datePickerContainer, #currentStepTotalContainer {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     align-items: center;
     color: white;
+  }
+
+  #currentStepTotalContainer {
+    position: relative;
+    top: 15px;
+    right: 5px;
+  }
+
+  #dailyStepsContainer {
+    position: relative;
+    left: 12px;
+    text-align: left;
+  }
+
+  #profileSection {
     width: 100%;
+  }
+
+  #userFullNameContainer, #userBioContainer, #userProfilePicContainer {
+    width: 80%;
+  }
+
+  #todaySteps {
+    width: 350px;
+  }
+
+  #todayStepsDeadline {
+    font-size: 17px;
+  }
+
+  #todayStepsInput {
+    width: 170px;
+    margin-left: -30px;
+    margin-bottom: 5px;
+  }
+
+  #stepTotal {
+    width: 250px;
+  }
+
+  #stepTotalInput {
+    position: relative;
+    left: 5px;
+  }
+
+  #pastSteps {
+    width: 450px;
+    margin-right: 10px;
+  }
+
+  #userStepCountContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    top: 55px;
+    right: 100px;
+  }
+
+  #submitTodayStepsButton, #checkPastStepsButton {
+    margin-left: 20px; 
+  }
+
+  .challengeInfoColor {
+    color: #5055ca;
   }
   
   #maxLength {
@@ -503,41 +697,62 @@ tbody tr td:nth-child(2) {
   #step-count, #bio {
     font-size: 35px;
   }
+
+  .bio-wrapper {
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: auto; /* Enable overflow with scrollbar when needed */
+  }
   
-  #name, #stepCount {
+  .bio-wrapper textarea {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    resize: none; /* Optional: Disable textarea resizing */
+    border: none; /* Optional: Remove textarea border */
+  }
+  
+  #name {
     font-size: 30px;
     vertical-align: center;
+    margin-right: 15px;
+  }
+
+  #usernameSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;;
+    margin-bottom: 20px;
+    margin: 40px;
+    margin-top: 0px;
   }
   
   #usernameHeader {
     color: goldenrod;
-    font-size: 40px;
-    text-align: center;
-    margin-left: 79px;
-  }
-
-  #friendsHeader {
-    color: goldenrod;
-    font-size: 40px;
-    text-align: center;
-  }
-
-  #addFriend {
-    color: goldenrod;
-    font-size: 20px;
+    font-size: 60px;
+    font-weight: bold;
+    vertical-align: center;
   }
 
   #addFriendButton {
-    background-color: transparent;
+    margin-left: 15px;
+    margin-top: 5px;
+    background-color: goldenrod;
     cursor: pointer;
+    border-radius: 50%;
   }
 
   #addFriendImage {
-    width: 70px;
-    height: 70px;
+    width: 35px;
+    height: 35px;
     background-color: goldenrod;
-    border-radius: 35%;
-    margin-left: 10px;
+    border-radius: 50%;
+    margin-left: 3px;
   }
   
   #returnArrow {
@@ -551,7 +766,1027 @@ tbody tr td:nth-child(2) {
     box-shadow: 0px 2px 2px 2px;
   }
 
-    /* end of userProfile */
+  #challengesSectionHeader {
+    font-size: 70px;
+    text-align: center;
+    color: #f69620;
+    margin-bottom: 50px;
+    margin-top: -70px;
+  }
+
+  #challengesSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  #starOne {
+    height: 500px;
+    width: 350px;
+  }
+  #starTwo {
+    height: 400px;
+    width: 350px;
+  }
+  #starThree {
+    height: 400px;
+    width: 300px;
+  }
+
+  .challengeOne {
+    background-color:#262626;
+    border: 10px solid black;
+    border-radius: 9px;
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: transform 0.25s ease-in-out;
+    cursor: pointer;
+  }
+
+  .challengeOneSelected {
+    transform: scale(0.8);
+    background-color: #f69620;
+    border: 10px solid black;
+  }
   
+  #challengeOne:hover {
+    transform: scale(0.8);
+  }
+
+  .challengeTwo {
+    background-color:#262626;
+    border: 10px solid black;
+    border-radius: 9px;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: transform 0.25s ease-in-out;
+    cursor: pointer;
+  }
+
+  .challengeTwoSelected {
+    transform: scale(0.8);
+    background-color: #f69620;
+    border: 10px solid black;
+  }
+  
+  #challengeTwo:hover {
+    transform: scale(0.8);
+  }
+
+  .challengeThree {
+    background-color:#262626;
+    border: 10px solid black;
+    border-radius: 9px;
+    width: 350px;
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: transform 0.25s ease-in-out;
+    cursor: pointer;
+  }
+
+  .challengeThreeSelected {
+    transform: scale(0.8);
+    background-color: #f69620;
+    border: 10px solid black;
+  }
+  
+  #challengeThree:hover {
+    transform: scale(0.8);
+  }
+
+  #challengeOneHeader {
+    text-align: center;
+    font-size: 60px;
+    color: #00bfe8;
+  }
+
+  #challengeTwoHeader {
+    text-align: center;
+    font-size: 55px;
+    color: #00bfe8;
+  }
+  #challengeThreeHeader {
+    text-align: center;
+    font-size: 55px;
+    color: #00bfe8;
+  }
+  
+  #challengeOneFooter, #challengeTwoFooter, #challengeThreeFooter {
+    text-align: center;
+    font-size: 30px;
+    color: #f69620;
+  }
+
+  #usernameRegister {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 70px;
+  }
+
+  #usernameRegisterHeader {
+    font-size: 50px;
+    margin-right: 50px;
+    margin-left: 90px;
+  }
+
+  #usernameRegisterField {
+    background-color: transparent;
+    width: 100%;
+    margin-right: 90px;
+    font-size: 50px;
+    color: white;
+    padding: 5px;
+    padding-left: 10px;
+  }
+
+  #usernameRegisterMaxLength {
+    margin-left: 90px;
+    color: white;
+  }
+
+  #registerButtonContainer {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #registerButton {
+    margin-right: 100px;
+    width: 211px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  #userProfilePage {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -50px;
+  }
+
+  #challengeSection {
+    font-size: 30px;
+    text-align: center;
+    color: goldenrod;
+    display: flex;
+    flex-wrap: wrap;
+    width: 850px;
+    margin-left: 20px;
+  }
+
+  #challengeIcon {
+    margin-top: 10px;
+  }
+
+  #challengeHeader {
+    font-size: 40px;
+    height: 50px;
+    color: #00bfe8;
+    width: 100%;
+  }
+
+  #challengeInfo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+  }
+
+  #challengeIconHeader {
+    margin-bottom: 35px;
+    width: 100%;
+    font-size: 32px;
+  }
+
+  #challengeImage {
+    height: 320px;
+    width: 255px;
+  }
+
+  .circularProgressBar {
+    width: 350px;
+    height: 350px;
+    position:relative;
+    bottom: 350px;
+    margin-bottom: -350px;
+  }
+
+  .outer {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid #f69620;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7);
+  }
+
+  .inner {
+    height: 310px;
+    width: 310px;
+    border-radius: 50%;
+    border: 1px solid #f69620;
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                -0.5px -0.5px 0px rgba(255,255,255,1),
+                0.5px 0.5px 0px rgba(0,0,0,0.15),
+                0px 12px 10px -10px rgba(0,0,0,0.05);
+    position: relative;
+    right: 5px;
+    bottom: 5px;
+    z-index: 2;
+  }
+  circle{
+    fill: none;
+    stroke: #00bfe8;
+    stroke-width: 20px;
+    stroke-dasharray: 1030;
+    stroke-dashoffset: 1030;
+    animation: anim 1.5s linear forwards;
+  }
+
+  #svgCircle {
+    position: relative;
+    bottom: 395px;
+    left: -6.2px;
+    transform: rotate(-90deg);
+  }
+
+  @keyframes anim {
+    100%{
+      stroke-dashoffset: 0;
+    }
+  }
+
+  #tMinus {
+    font-size: 40px;
+  }
 
 
+
+  @media screen and (max-width: 1419px) {
+    #userProfilePage {
+      display: flex;
+      justify-content: center;
+    }
+    #friendsSectionContainer {
+      margin-top: 60px;
+      margin-bottom: -20px;
+    }
+    #userProfile {
+      margin-top: 60px;
+    }
+  }
+
+  @media screen and (max-width: 1330px) {
+    #starOne {
+      height: 400px;
+      width: 280px;
+    }
+    #starTwo {
+      height: 320px;
+      width: 280px;
+    }
+    #starThree {
+      height: 373px;
+      width: 280px;
+    }
+    #challengeTwoHeader {
+      font-size: 35px;
+    }
+    #challengeOneHeader {
+      font-size: 35px;
+    }
+    #challengeThreeHeader {
+      font-size: 35px;
+    }
+    .challengeOne {
+      width: 300px;
+    }
+    .challengeTwo {
+      width: 300px;
+    }
+    .challengeThree {
+      width: 300px;
+    }
+  }
+
+  @media screen and (max-width: 920px) {
+    #challengesSectionHeader {
+      font-size: 50px;
+    }
+    #starOne {
+      height: 285px;
+      width: 200px;
+    }
+    #starTwo {
+      height: 228px;
+      width: 200px;
+    }
+    #starThree {
+      height: 266px;
+      width: 200px;
+    }
+    #challengeTwoHeader {
+      font-size: 29px;
+    }
+    #challengeOneHeader {
+      font-size: 29px;
+    }
+    #challengeThreeHeader {
+      font-size: 29px;
+    }
+    .challengeOne, .challengeTwo, .challengeThree {
+      width: 250px;
+    }
+    #challengeOneFooter, #challengeTwoFooter, #challengeThreeFooter {
+      font-size: 20px;
+    }
+    #usernameRegisterHeader {
+      font-size: 30px;
+    }
+    #usernameRegisterMaxLength {
+      font-size: 15px;
+      position: relative;
+      bottom: 30px;
+    }
+    #registerButton {
+      width: 140px;
+      height: 35px;
+      font-size: 15px;
+    }
+    #usernameRegisterField {
+      background-color: transparent;
+      width: 100%;
+      margin-right: 90px;
+      font-size: 50px;
+      color: white;
+      padding: 5px;
+      padding-left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    #challengesSectionHeader {
+      font-size: 50px;
+    }
+    #starOne {
+      height: 185px;
+      width: 130px;
+    }
+    #starTwo {
+      height: 148.2px;
+      width: 130px;
+    }
+    #starThree {
+      height: 173px;
+      width: 130px;
+    }
+    #challengeTwoHeader, #challengeOneHeader, #challengeThreeHeader {
+      font-size: 19px;
+    }
+    .challengeOne, .challengeTwo, .challengeThree {
+      width: 150px;
+      border: 7px solid black;
+    }
+    #challengeOneFooter, #challengeTwoFooter, #challengeThreeFooter {
+      font-size: 17px;
+    }
+    #usernameRegisterHeader {
+      font-size: 30px;
+    }
+    #usernameRegisterMaxLength {
+      font-size: 15px;
+      position: relative;
+      bottom: 30px;
+    }
+    #registerButton {
+      width: 140px;
+      height: 35px;
+      font-size: 15px;
+    }
+    #usernameRegisterField {
+      margin-right: 30px;
+      padding: 2px;
+      padding-left: 7px;
+    }
+    #registerButtonContainer {
+      margin-left: 70px;
+    }
+  }
+
+  @media screen and (max-width: 990px){
+    #logo {
+      width: 146px;
+      height: 95px;
+    }
+    #takeSomeSteps {
+      font-size: 1.5rem;
+    }
+    #menuitems {
+      width: 150px;
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 869px) {
+    #challengeSection {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-left: 0px;
+    }
+    #challengeInfo {
+      position: relative;
+      bottom: 70px;
+      display: flex;
+      justify-content: center;
+      margin-top: 90px;
+      margin-bottom: -70px;
+      height: 320px;
+    }
+    #userStepCountContainer {
+      position: static;
+    }
+    #currentStepTotalContainer {
+      position: static;
+    }
+    #dailyStepsContainer {
+      position: static;
+    }
+    #datePickerContainer {
+      position: static;
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    #topTenHeader {
+      font-size: 30px;
+      margin-left: 0px;
+      position: relative;
+      left: -5px;
+    }
+
+    .ladder-search {
+      padding-right: 0px;
+    }
+
+    #search-leaderboard {
+      font-size: 10px;
+      height: 30px;
+      width: 160px;
+    }
+    #bug {
+      position: relative;
+      left: -9px;
+    }
+    #steps {
+      width: 30px;
+      height: 30px;
+    }
+    #remainingTime {
+      font-size: 15.8px;
+    }
+    #countDownClock {
+      font-size: 30px;
+    }
+    #bug {
+      height: 40px;
+      width: 40px;
+      position: relative;
+      bottom: 2px;
+    }
+  }
+
+  @media screen and (max-width: 800px){
+    #topTenHeader {
+      font-size: 20px;
+      margin-left: 0px;
+      position: relative;
+      left: -5px;
+    }
+    #remainingTime {
+      font-size: 11px;
+    }
+    #countDownClock {
+      font-size: 20px;
+    }
+    #bug {
+      height: 20px;
+      width: 20px;
+      position: relative;
+      bottom: 2px;
+      right: 15px;
+    }
+    .login-title {
+      margin-right: 0px;
+    }
+    .login-card {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    #menuitems {
+      width: 120px;
+      font-size: 18px;
+    }
+    .title {
+      font-size: 23px;
+    }
+    .tip {
+      font-size: 15px;
+    }
+    #description {
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    tr th {
+      font-size: 20px !important;
+    }
+    #steps {
+      width: 20px;
+      height: 20px;
+    }
+    #leadersRank {
+      font-size: 15px !important;
+      position: relative;
+      left: 20px;
+    }
+    #placeImage {
+      position: relative;
+      left: 10px;
+    }
+    #leadersSteps {
+      font-size: 20px !important;
+    }
+    
+    #leadersUsername {
+      font-size: 15px !important;
+    }
+    #rankings tr td {
+      padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 690px){
+    h2 .page-title {
+      font-size: 1.25rem !important;
+      margin-bottom: -500px;
+    }
+    form label {
+      font-size: 1rem !important;
+    }
+    form .form-input {
+      padding: 0rem;
+    }
+  }
+
+  @media screen and (max-width: 590px){
+    #takeSomeSteps {
+      font-size: 1rem;
+    }
+    .login-card {
+      margin-bottom: 50px;
+    }
+    .ladder-nav {
+      justify-content: center;
+    }
+    #topTenHeader {
+      font-size: 25px;
+    }
+    #countdown {
+      display: flex;
+      justify-content: center;
+    }
+    .ladder-search {
+      display: flex;
+      justify-content: center;
+    }
+    #signup-card {
+      margin-bottom: 0px;
+    }
+    #leadersUsername {
+      font-size: 15px !important;
+    }
+    #leadersRank {
+      font-size: 20px !important;
+      position: relative;
+      left: 12px;
+    }
+    #placeImage {
+      width: 35px;
+      height: 35px;
+    }
+    #rankings tr td:nth-child(2) {
+      font-size: 12px !important;
+    }
+    #rankings tr td:nth-child(3) {
+      font-size: 12px !important;
+    }
+    #rankings tr td {
+      padding: 15px;
+    }
+    #steps {
+      margin-top: 2px;
+      margin-left: 5px;
+    }
+    #leaderboard {
+      padding-right: -180px;
+    }
+  }
+  @media screen and (max-width: 580px) {
+    #usernameHeader {
+      font-size: 40px;
+    }
+    #challengeHeader {
+      font-size: 30px;
+    }
+    #challengeIconHeader {
+      font-size: 25px;
+    }
+    #tMinus {
+      font-size:30px;
+    }
+    #userStepCountContainer, #currentStepTotalContainer, #dailyStepsContainer, #datePickerContainer{
+      font-size: 20px;
+    }
+    #todayStepsDeadline {
+      font-size: 12px;
+    }
+    #todayStepsInput, #stepTotalInput, #datepicker, #stepsToGoal {
+      width: 150px;
+    }
+    #userStepCountContainer {
+      width: 450px;
+      display: flex;
+    }
+    #currentStepTotalContainer {
+      width: 300px;
+    }
+    #datePickerContainer {
+      width: 300px;
+    }
+    #dailyStepsToGoal {
+      width: 150px;
+    }
+    #pastSteps {
+      margin-right: 20px;
+    }
+    #checkPastStepsButton {
+      margin-left: 10px;
+    }
+    #stepTotal {
+      width: 120px;
+    }
+    #todaySteps {
+      width: 150px;
+    }
+    #userSteps {
+      width: 150px;
+      margin-right: 40px;
+    } 
+    .profilePicClass {
+      position: relative;
+      left: 15px;
+    }
+    #friendsSection {
+      width: 410px;
+    }
+    .friendStatus {
+      right: 125px;
+    }
+    .statusCell {
+      margin-right: 120px;
+    }
+    .container-wrap2 {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #profilePicAndBackground {
+      justify-content: center;
+    }
+    #profilePicture {
+      position: relative;
+      right: 50px;
+      left: -2px;
+    }
+  }
+
+  @media screen and (max-width: 415px){
+    #challengeHeader {
+      margin-top: -20px;
+    }
+    #topTenHeader {
+      font-size: 20px;
+    }
+    #logo {
+      width: 108px;
+      height: 70px;
+    }
+    #takeSomeSteps {
+      margin-left: -30px;
+    }
+    .container-wrap2 {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .row {
+      position: relative;
+      right: 20px;
+    }
+    #loginCard {
+      margin-top: -50px;
+    }
+    #signupCard {
+      margin-top: -10px;
+      margin-bottom: -15px;
+    }
+    .page-title {
+      font-size: 20px;
+      margin-bottom: 0px;
+    }
+    form .form-input {
+      padding: -0.6rem;
+    }
+    .loginCardHeaders {
+      font-size: 14px !important;
+    }
+    #logo {
+      position: relative;
+      right: 9px;
+    }
+    #menuitems {
+      position: relative;
+      left: 15px;
+      font-size: 11px;
+      width: 80px;
+    }
+    #takeSomeSteps {
+      position: relative;
+      bottom: 5px;
+      left: 9px;
+    }
+    #leadersRank {
+      font-size: 15px !important;
+      position: relative;
+      left: 14px;
+    }
+    #placeImage {
+      width: 30px;
+      height: 30px;
+    }
+    #leadersUsername {
+      font-size: 10px !important;
+    }
+    #leadersSteps {
+      font-size: 15px !important;
+    }
+    #steps {
+      width: 15px;
+      height: 15px;
+    }
+    #challengeImage {
+      height: 188px;
+      width: 150px;
+      margin-bottom: 7px;
+      margin-right: 3px;
+    }
+    #rankings tr th {
+      font-size: 15px !important;
+    }
+    .circularProgressBar {
+      position:relative;
+      bottom: 220px;
+      left: 62px;
+      margin-bottom: -330px;
+    }
+    .outer {
+      width: 223px;
+      height: 223px;
+      padding: 18px;
+    }
+    .inner {
+      width: 195px;
+      height: 195px;
+    }
+    #svgCircle {
+      position: absolute;
+      top: -108.5px;
+      left: -69.5px;
+    }
+    circle {
+      stroke-width: 13px;
+    }
+    #userStepCountContainer, #currentStepTotalContainer, #dailyStepsContainer, #datePickerContainer{
+      font-size: 18px;
+    }
+    #todayStepsDeadline {
+      font-size: 11px;
+    }
+    #todayStepsInput, #stepTotalInput, #datepicker, #stepsToGoal {
+      width: 120px;
+      height: 40px;
+    }
+    #userStepCountContainer {
+      width: 400px;
+      display: flex;
+    }
+    #submitTodayStepsButton {
+      margin-bottom: 5px;
+    }
+    #currentStepTotalContainer {
+      width: 250px;
+    }
+    #datePickerContainer {
+      width: 250px;
+    }
+    #dailyStepsToGoal {
+      width: 150px;
+      width: 120px;
+    }
+    #pastSteps {
+      margin-right: 20px;
+    }
+    #checkPastStepsButton {
+      margin-left: 10px;
+    }
+    #stepTotal {
+      width: 110px;
+    }
+    #todaySteps {
+      width: 150px;
+    }
+    #userSteps {
+      width: 150px;
+      margin-right: 30px;
+    } 
+    #challengeInfo {
+      height: 250px;
+    }
+    #challengeIconHeader {
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+    #userProfile {
+      margin-bottom: -130px;
+    }
+    #profileSection {
+      margin-top: -285px;
+    }
+    #bannerWings {
+      width: 262.5px;
+      height: 150px;
+    }
+    #colorBoard {
+      height: 44px;
+      width: 262.5px;
+      position: relative;
+      bottom: 23px;
+    }
+    #colorOne {
+      height: 38px;
+      position: relative;
+      bottom: 2px;
+    }
+    #colorTwo {
+      height: 38px;
+      position: relative;
+      bottom: 2px;
+    }
+    #colorThree {
+      height: 38px;
+      position: relative;
+      bottom: 2px;
+    }
+    #colorFour {
+      height: 38px;
+      position: relative;
+      bottom: 2px;
+    }
+    #colorFive {
+      height: 38px;
+      position: relative;
+      bottom: 2px;
+    }
+    #profilePicAndBackground {
+      justify-content: center;
+      width: 262.5px;
+    }
+    #profilePicture {
+      height: 62px;
+      width: 62px;
+      position: relative;
+      left: -1px;
+      bottom: 107px;
+    }
+    #friendsSection {
+      width: 310px;
+      height: 98px;
+    }
+    #friendsHeader {
+      font-size: 20px;
+    }
+    #friendRequestHeader {
+      font-size: 15px;
+    }
+    .friendProfilePic, .friendUserName, .friendStatus {
+      font-size: 10px;
+    }
+    .friendStatus {
+      right: 225px;
+    }
+    .statusCell {
+      margin-right: 215px;
+    }
+    .acceptButtonImage {
+      margin-right:3px;
+      margin-bottom: 3px;
+    }
+    #challengesSectionHeader {
+      font-size: 40px;
+    }
+    #starOne {
+      height: 128px;
+      width: 90px;
+    }
+    #starTwo {
+      height: 102.6px;
+      width: 90px;
+    }
+    #starThree {
+      height: 119px;
+      width: 90px;
+    }
+    #challengeTwoHeader, #challengeOneHeader, #challengeThreeHeader {
+      font-size: 17px;
+    }
+    .challengeOne, .challengeTwo, .challengeThree {
+      width: 120px;
+      border: 6px solid black;
+    }
+    #challengeOneFooter, #challengeTwoFooter, #challengeThreeFooter {
+      font-size: 15px;
+    }
+    #usernameRegisterHeader {
+      font-size: 20px;
+      margin-right: 20px;
+      position: relative;
+      right: 50px;
+    }
+    #usernameRegisterMaxLength {
+      font-size: 9px;
+      position: relative;
+      bottom: 15px;
+      right: 50px;
+    }
+    #registerButton {
+      width: 120px;
+      height: 25px;
+      font-size: 12px;
+      margin-right: 120px;
+    }
+    #usernameRegisterField {
+      margin-right: 30px;
+      padding: 2px;
+      padding-left: 7px;
+      width: 200px;
+      height: 40px;
+      position: relative;
+      right: 40px;
+    }
+    #registerButtonContainer {
+      margin-left: 70px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    #rankings {
+      position: relative;
+      right: 10px;
+    }
+    #registerButton {
+      width: 120px;
+      height: 25px;
+      font-size: 12px;
+      margin-right: 90px;
+      bottom: 10px;
+      position: relative;
+      bottom: 10px;
+    }
+    footer {
+      margin-top: 30px;
+    }
+  }

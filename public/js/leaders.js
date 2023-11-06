@@ -2,6 +2,20 @@ const rankingsBody = $("#rankings");
 const searchBar = $("#search-leaderboard");
 const tableBody = $("#tableBody");
 let allUsers;
+const countDownDiv = $("#countDownClock");
+
+let countDownClock = () => {
+    let currentMonth = dayjs().month();
+    let currentUnix = dayjs().unix();
+    let monthEndUnix = dayjs().month(currentMonth + 1).startOf("month").unix();
+    let timeUntilMonthEndUnix = monthEndUnix - currentUnix;
+    let formattedTimeUntilMonthEnd = dayjs.duration(timeUntilMonthEndUnix, "seconds").format("DD:HH:mm:ss")
+  
+    // Update the content of the element with id "countdown-display" using jQuery
+    $("#countDownClock").text(formattedTimeUntilMonthEnd);
+  }
+  
+setInterval(countDownClock,1);
 
 
 const loadAllUsers = async () => {
@@ -12,6 +26,7 @@ const loadAllUsers = async () => {
     .then((data) => {
         allUsers = data;
     });
+
 }
 
 
@@ -73,7 +88,7 @@ const filterRankings = async () => {
             newRow.append(nameCell);
 
             let stepCountCell = $("<td>");
-            stepCountCell.text(allUsers[i].UserProfile.step_count.toLocaleString());
+            stepCountCell.text(allUsers[i].totalSteps.toLocaleString());
 
             let stepsImage = $("<img>");
             stepsImage.attr("src", "/images/footsteps.png");
@@ -94,7 +109,7 @@ const filterRankings = async () => {
     }
 }
 
-const displayResults =  (matchingUsers) => {
+const displayResults = (matchingUsers) => {
     //all of the table rows that belong to the body
     let tableBodyRows = tableBody.children();
     for (let i = 0; i < tableBodyRows.length; i++) {
@@ -136,7 +151,7 @@ const displayResults =  (matchingUsers) => {
         newRow.append(nameCell);
 
         let stepCountCell = $("<td>");
-        stepCountCell.text(user.UserProfile.step_count.toLocaleString());
+        stepCountCell.text(user.totalSteps.toLocaleString());
 
         let stepsImage = $("<img>");
         stepsImage.attr("src", "/images/footsteps.png");
@@ -154,3 +169,24 @@ const displayResults =  (matchingUsers) => {
 searchBar.on("keyup", async () => {
     await filterRankings();
 });
+
+document.getElementById('bug').style.color = 'goldenrod';
+
+let count = 0;
+const countdown = $(".ladder-title");
+let linebreak;
+
+let mediaquery = () => {
+    if ($(window).width() < 590) {
+        if (count === 0) {
+            linebreak = $("<div>").addClass("linebreak");
+            countdown.after(linebreak);
+            count = 1;
+        }
+    } else if (count === 1) {
+        linebreak.remove();
+        count = 0;
+    }
+}
+
+setInterval(mediaquery, 10);

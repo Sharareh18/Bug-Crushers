@@ -14,8 +14,6 @@ const loginFormHandler = async (event) => {
 
       console.log('Response from server:', data);
 
-      console.log('Response from server:', data);
-
       if (data.user) {
         alert('Successful login.'); //THIS IS WORKING
         window.location.href = "/";
@@ -34,23 +32,24 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
   event.preventDefault();
-  const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
-  if (username && email && password) {
+  if (email && password) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
     
     const data = await response.json();
+
+    console.log(data);
     
     if (response.ok) {
-      alert(`Congrats, ${data.user.username} on signing up; keep up the good stepping!`);
-      console.log("and here");
-    } else {
-      alert('Failed to sign up.');
+      window.location.pathname = "/register";
+    } 
+    else {
+      alert('Email is already in use.');
     }
   }
 };

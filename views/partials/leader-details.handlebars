@@ -2,19 +2,29 @@
 <tr onclick="window.location.href='profile/{{this.id}}';" style="cursor: pointer;">
     <td>
         {{#if this.numberOne}}
-            <img src="images/1stPlace.png" style = "height: 45px; width: 45px;">
+        <div>
+            <img id = "placeImage" src="images/1stPlace.png">
+        </div>
         {{else if this.numberTwo}}
-            <img src="images/2ndPlace.png" style = "height: 45px; width: 45px;">
+        <div>
+            <img id = "placeImage" src="images/2ndPlace.png">
+        </div>
         {{else if this.numberThree}}
-            <img src="images/3rdPlace.png" style = "height: 45px; width: 45px;">
+        <div>
+            <img id = "placeImage" src="images/3rdPlace.png">
+        </div>
         {{else}}
-            <div>{{placeFormatter @index }} </div>
+            <div id = "leadersRank"> {{placeFormatterLeaderPage @index 1}} </div>
         {{/if}}
     </td> <!--Rank-->
-    <td>{{this.username}}</td> <!--Username-->
     <td>
-        {{addCommas this.UserProfile.step_count}}
-        <img src="images/footsteps.png" style = "height: 30px; width: 30px;">
+        <div id = "leadersUsername">{{this.username}}</div>
+    </td> <!--Username-->
+    <td>
+        <div style = "display: flex; flex-wrap: nowrap; justify-content: center;">
+            <div id ="leadersSteps" >{{addCommas this.totalSteps}}</div>
+            <img id = "steps" src="images/footsteps.png">
+        </div>
     </td> <!--Step Count-->
 
 </tr>

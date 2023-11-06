@@ -27,9 +27,14 @@ UserProfile.init(
             type: DataTypes.STRING,
             allowNull: true, //make sure to have a check on the profile page; if the url is null, then no profile picture
         },
-        step_count: {
+        challenge: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        current_steps: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            defaultValue: 0,
         },
         user_background_color: {
           type: DataTypes.STRING,

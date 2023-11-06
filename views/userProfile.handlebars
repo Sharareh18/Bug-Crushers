@@ -1,10 +1,69 @@
-
-<div id = "userProfile">
-    <div id = "profilePicAndFriendsContainer">
-        <div id = "profilePicAndBackground">
-            <div id = "usernameHeader">USERNAME: {{username}}</div>
+<div id = "userProfilePage">
+    <div id = "usernameSection">
+        <div id = "usernameHeader">{{placeFormatter rank}}: {{username}}</div>
+        {{#if addFriendButtonVisible}}
+        <div>
+            <button id = "addFriendButton">
+                <img id = "addFriendImage" src = "/images/person-add-outline.svg" style = "margin-right: 5px">
+            </button>
+        </div>
+        {{/if}}
+    </div>
+    <div id = "challengeSection">
+        <div id = "challengeHeader">Step Goal: {{goalStepsComma}} Steps</div>
+        <div id = "challengeIcon">
+            <div id = "challengeIconHeader">This Month's Challenge: <br> {{challenge}}</div>
             <div class = "linebreak"></div>
-            <img id = "bannerWings" src = "/images/bannerWings.png" style = "background-color: {{userBackgroundColor}};">
+            <img id = "challengeImage" {{#if ChallengeOne}}src = "/images/starOne.png"{{/if}}{{#if ChallengeTwo}}src = "/images/starTwo.png"{{/if}}{{#if ChallengeThree}}src = "/images/starTwo.png"{{/if}}>
+            <div class = "linebreak"></div>
+            <div class = "circularProgressBar">
+                <div class = "outer">
+                    <div class = "inner"></div>
+                </div>
+                <svg id = "svgCircle" xmlns="http://www.w3.org/2000/svg" version="1.1" width="400px" height="400px">
+                    <defs>
+                        <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                        </linearGradient>
+                    </defs>
+                    <circle id = "myCircle" cx="180" cy="181" r="164" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div id = "tMinus">T-{{remainingDaysOfMonth}}</div>
+        </div>
+        <div id = "challengeInfo">
+            <div id = "userStepCountContainer" class="form-group">
+                <div id = "userSteps">
+                    <label id = "todaySteps" class = "challengeInfoColor" >Enter Today's Steps:</label>
+                    <div id = "todayStepsDeadline">Due at 11:59PM Daily!</div>
+                </div>
+                <div>
+                    <input id="todayStepsInput" class="form-input todays_steps" type="text" name="todays_steps" value={{current_steps}} {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>
+                </div>
+                {{#if enableLoggedInFeatures}}<button id = "submitTodayStepsButton" type="submit" class="btn btn-primary">Submit</button>{{else}}{{/if}}   
+            </div>
+            <div class = "linebreak"></div>
+            <div id = "currentStepTotalContainer">
+                <label id = "stepTotal" class = "challengeInfoColor">Step Total:</label>
+                <input id = "stepTotalInput" type="text" value = {{totalStepsThisMonth}} {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>
+            </div>
+            <div class = "linebreak"></div>
+            <div id = "dailyStepsContainer">
+                <label id = "dailyStepsToGoal" class = "challengeInfoColor" >Daily Steps To Reach Goal:</label>
+                <input id = "stepsToGoal" class="form-input" type="text" value = {{dailyStepsToGoal}} {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>
+            </div>
+            <div class = "linebreak"></div>
+            <div id = "datePickerContainer">
+                <label id = "pastSteps" class = "challengeInfoColor"{{#if enableLoggedInFeatures}}{{else}}style = "position: relative; right: 45px;"{{/if}}>Past Steps:</label>
+                <input id="datepicker" type="text" {{#if enableLoggedInFeatures}}{{else}} style = "position: relative; right: 90px" disabled{{/if}}>
+                {{#if enableLoggedInFeatures}}<button id = "checkPastStepsButton" type="submit" class="btn btn-primary">Check</button>{{else}}{{/if}}
+            </div>
+        </div>
+    </div>
+    <div id = "userProfile"{{#if enableLoggedInFeatures}}{{else}}style = "height: 500px;"{{/if}}>
+        <div id="profilePicAndBackground" {{#if enableLoggedInFeatures}}{{else}}style="margin-bottom: -70px;"{{/if}}>
+            <img id = "bannerWings" src = "/images/bannerWings.png" style = "background-color: {{userBackgroundColor}}">
             <img id = "profilePicture" src = "{{profilePicture}}">
             {{#if enableLoggedInFeatures}}
                 <div id = "colorBoard">
@@ -16,57 +75,74 @@
                 </div>
             {{/if}}
         </div>
-        <div id = "friendsSection">
-            <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
-            <div class = "linebreak"></div>
-            {{#if addFriendButtonVisible}}
-                <div>
-                    <div id = "addFriend">Add Friend</div>
-                    <button id = "addFriendButton">
-                        <img id = "addFriendImage" src = "/images/person-add-outline.svg">
-                    </button>
-                </div>
+        {{#if enableLoggedInFeatures}}{{else}}<div id = "friendsHeader">FRIENDS: {{friendCount}}</div>{{/if}}
+        {{#if enableLoggedInFeatures}}
+            {{#if anyFriendRequests}}
+            {{else}}
+                <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
             {{/if}}
-        </div>
-        <div>
-            <button id = "returnButton">
-                <img id = "returnArrow" src = "/images/returnArrow.png">
-            </button>
+        {{else}}
+        {{/if}}
+        <div class = "linebreak"></div>
+        <div id = "profileSection">
+            <form id = "profileDetails" class="form new-profile-form">
+                <div id = "userFullNameContainer">
+                    <div id = "fullName">
+                        <label id = "name">Name: </label>
+                        <div class = "linebreak"></div>
+                        <div id = "maxLength">Max Length: 50 Characaters</div>
+                    </div>
+                    <input maxlength="50" class="form-input full_name" type="text" name="name" value = "{{fullName}}" {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>
+                </div>
+                <div id = "userBioContainer">
+                    <div id = "userBio">
+                        <label id = "bio">Bio:</label>
+                        <div class = "linebreak"></div>
+                        <div id = "maxLength">Max Length: 255 Characaters</div>
+                    </div>
+                    <div class="bio-wrapper">
+                        <textarea id="bioInput" maxlength="255" class="bio" {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>{{bio}}</textarea>
+                    </div>
+                </div>
+                <div id = "userProfilePicContainer">
+                    <label for="image">Profile Image (enter as URL):</label>
+                    <input class="form-input profile_picture" type="Url" id="image" name="image" value="{{profilePicture}}" pattern="https://.*" size="10"/ {{#if enableLoggedInFeatures}}{{else}}disabled{{/if}}>
+                </div>
+                {{#if enableLoggedInFeatures}}
+                    <div>
+                        {{#if enableLoggedInFeatures}}<button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>{{else}}{{/if}}
+                    </div>
+                {{/if}}
+            </form>
         </div>
     </div>
-    <div class = "linebreak"></div>
-    <form id = "profileDetails" class="form new-profile-form">
-            <div id = "userFullNameContainer">
-                <div id = "fullName">
-                    <label id = "name">Name:</label>
+    {{#if enableLoggedInFeatures}}
+        {{#if anyFriendRequests}}
+        <div id = "friendsSectionContainer">
+            <div id = "friendsSection">
+                <div id = "friendsHeader">FRIENDS: {{friendCount}}</div>
                     <div class = "linebreak"></div>
-                    <div id = "maxLength">Max Length: 50 Characaters</div>
+                    <div id = "friendRequestSection">
+                        {{#if incomingFriendRequestsTable}}
+                            <div id = "friendRequestHeader">Incoming Friend Requests</div>
+                            <table id = "friendRequestTable">
+                                <thead>
+                                    <tr>
+                                        <td class="friendProfilePic">User Photo</td>
+                                        <td class = "friendUserName">Username</td>
+                                        <td class = "friendStatus">Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody id = "tableBodyTwo">
+                                </tbody>
+                            </table>
+                        {{/if}}
+                    </div>
                 </div>
-                <input maxlength="50" class="form-input full_name" type="text" id="name" name="name" value = "{{fullName}}">
             </div>
-            <div id = "userBioContainer" class="form-group">
-                <div id = "userBio">
-                    <label id = "bio">Bio:</label>
-                    <div class = "linebreak"></div>
-                    <div id = "maxLength">Max Length: 255 Characaters</div>
-                </div>
-                <input maxlength="255" class="form-input bio" type="text" id="name" name="name" value = "{{bio}}">
-            </div>
-            <div id = "userStepCountContainer" class="form-group">
-                <div id = "userSteps">
-                    <label id = "stepCount">Step Count:</label>
-                </div>
-                <input class="form-input step_count" type="text" id="step-count" name="step-count" value={{stepCount}}>
-            </div>
-            <div id = "userProfilePicContainer" class="form-group">
-                <label for="image">Profile Image (enter as URL):</label>
-                <input class="form-input profile_picture" type="Url" id="image" name="image" value="{{profilePicture}}" pattern="https://.*" size="10"/>
-            </div>
-            {{#if enableLoggedInFeatures}}
-                <div class="form-group">
-                    <button id = "updateButton" type="submit" class="btn btn-primary">Update Profile</button>
-                </div>
-            {{/if}}
-    </form>
+        </div>
+        {{else}}   
+        {{/if}}
+    {{else}}
+    {{/if}}
 </div>
-

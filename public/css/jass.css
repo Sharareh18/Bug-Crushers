@@ -1142,11 +1142,8 @@ form .form-label {
 form .form-input {
   width: 100%;
   padding: 0.75rem;
-  color: #1a1a1a;
-  background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;
-  border: 1px solid #484848;
   border-radius: 0.3rem;
 }
 
@@ -1703,3 +1700,115 @@ form [type='radio'] {
     align-content: center;
   }
 }
+
+@media screen and (max-width: 690px){
+    form .form-input {
+      padding: 0.4rem;
+    }
+    .btn {
+      padding: 0.35rem 1rem;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    #footerDescriptionContainer {
+      margin-bottom: 2px;
+    }
+    .mb-4 {
+      margin-bottom: 10px;
+    }
+    .container {
+      font-size: 10px;
+    }
+    #footerTitle {
+      font-size: 20px;
+    }
+    #footerDescription {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 415px){
+    #footerTitle {
+      font-size: 14px;
+      margin: 0px;
+    }
+    #footerDescription {
+      font-size: 10px;
+    }
+    #footerDescriptionContainer {
+      margin-bottom: -7px;
+    }
+    .row {
+      position: relative;
+      bottom: 7px;
+    }
+    .container {
+      height: 210px;
+    }
+  }
+  @media screen and (max-width: 375px){
+    #footerTitle {
+      font-size: 14px;
+      margin: 0px;
+    }
+    #footerDescription {
+      font-size: 10px;
+    }
+    #footerDescriptionContainer {
+      margin-bottom: -7px;
+    }
+    .row {
+      position: relative;
+      bottom: 9px;
+    }
+    .container {
+      height: 210px;
+    }
+  }
+
+  @media screen and (max-width: 414px){
+    .login-nav {
+      height: 90px;
+    }
+    #logo {
+      width: 92px;
+      height: 60px;
+    }
+    #takeSomeSteps {
+      margin-left: -20px;
+      position: relative;
+      bottom: 15px;
+      left: 20px;
+    }
+    .container-wrap2 {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .row {
+      position: relative;
+      right: 20px;
+    }
+    #login-card {
+      margin-top: -30px;
+    }
+    #loginCardTitle {
+      font-size: 20px;
+    }
+    form .form-input {
+      padding: 0.2rem;
+    }
+    .btn {
+      padding: 0.25rem 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    #takeSomeSteps {
+      margin-left: -20px;
+      position: relative;
+      bottom: 20px;
+      left: 15px;
+    }
+  }
